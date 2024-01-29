@@ -1,55 +1,75 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .footer {
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-
-  &__logo {
-    width: 100px;
-  }
-
-  &__text {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    font-size: 0.75rem;
-  }
-
-  &__locations {
-    display: flex;
-    gap: 0.5rem;
-
-    span {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      text-transform: uppercase;
-
-      &:not(:last-child)::after {
-        content: '';
-        width: 5px;
-        height: 5px;
-        background-color: $clr-text_dark;
-        border-radius: 50%;
-      }
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
     }
-  }
 
-  &__socials {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-left: auto;
-
-    &-link {
-      width: 20px;
+    &__logo {
+        width: 100px;
     }
-  }
+
+    &__text {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-size: 0.75rem;
+    }
+
+    &__locations {
+        display: flex;
+        gap: 0.5rem;
+
+        span {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            text-transform: uppercase;
+
+            &:not(:last-child)::after {
+                content: "";
+                width: 5px;
+                height: 5px;
+                background-color: $clr-text_dark;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: auto;
+
+        &-link {
+            width: 20px;
+        }
+    }
 }
 
-.home + .footer {
-  display: none;
+.home ~ .footer {
+    display: none;
+}
+
+.header.open ~ .footer {
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin-inline: auto;
+    z-index: 100;
+    animation: showFooter 1000ms 200ms;
+    animation-fill-mode: backwards;
+
+    @keyframes showFooter {
+        from {
+            transform: translateY(100%);
+        }
+    }
 }
