@@ -1,0 +1,36 @@
+@import '../../../../styles/variables.scss';
+
+.video {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  aspect-ratio: 2/1;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-end;
+
+  &:hover &__preview {
+    opacity: 0;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $clr-text_light;
+  }
+
+  &__preview, &__player {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__preview {
+    z-index: -1;
+    transition: opacity 500ms;
+  }
+
+  &__player {
+    z-index: -2;
+  }
+}

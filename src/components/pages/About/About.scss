@@ -1,0 +1,21 @@
+.about {
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    p:nth-child(even) {
+      grid-column: 2;
+    }
+
+    p:nth-child(odd) {
+      grid-column: 1;
+    }
+
+    @for $i from 1 through 10 {
+      p:nth-child(#{$i}) {
+        grid-row: $i;
+      }
+    }
+  }
+}

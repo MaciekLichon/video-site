@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+body {
+  background-color: $clr-200;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 2rem;
+}

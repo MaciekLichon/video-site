@@ -1,0 +1,7 @@
+@import '../../../styles/variables.scss';
+
+.videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+}
