@@ -33,9 +33,10 @@ body {
 
 section {
     flex: 1;
+    margin-top: 100px;
 
-    &:not(.home) {
-        margin-top: 100px;
+    &.home, &.loading {
+        margin-top: 0;
     }
 }
 
