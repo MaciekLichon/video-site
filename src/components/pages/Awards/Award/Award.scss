@@ -9,7 +9,7 @@
     position: relative;
     background-color: $clr-200;
     transition: background-color 300ms;
-
+    
     &:nth-child(3n - 1) {
         border-inline: 1px solid $clr-text_dark;
     }
