@@ -1,7 +1,6 @@
 @import "../../../styles/variables.scss";
 
 .video-page {
-
     &__player {
         &_fullscreen {
             position: absolute;
@@ -11,9 +10,14 @@
             width: 100vw;
             aspect-ratio: unset;
             z-index: 1000000;
-    
+
             .video-page__button_minimize {
                 display: block;
+            }
+
+            .video-page__video {
+                object-fit: contain;
+                background-color: black;
             }
         }
     }
@@ -47,18 +51,53 @@
         }
 
         &-duration {
+            flex: 1;
             display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            &__timeline {
+                height: 2px;
+                width: 100%;
+                min-width: 120px;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 2px;
+                position: relative;
+                cursor: pointer;
+
+                &-thumb {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    background-color: $clr-text_dark;
+                    transition: width 250ms linear; // debatable
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 12px;
+                        aspect-ratio: 1/1;
+                        border-radius: 50%;
+                        background-color: $clr-text_dark;
+                        position: absolute;
+                        right: -6px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
         }
 
         &-buttons {
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content: space-between;
 
             &__group {
                 display: flex;
-                gap: 1rem;
+                gap: 0.5rem;
+                margin-left: 3rem;
             }
         }
     }
@@ -77,6 +116,10 @@
             height: 25px;
         }
 
+        &_play {
+            margin-right: 1rem;
+        }
+
         &_minimize {
             display: none;
             position: absolute;
@@ -84,15 +127,5 @@
             top: 50px;
             right: 50px;
         }
-    }
-}
-
-.button {
-    &-minimize {
-        display: none;
-        position: absolute;
-        z-index: 1;
-        top: 50px;
-        right: 50px;
     }
 }

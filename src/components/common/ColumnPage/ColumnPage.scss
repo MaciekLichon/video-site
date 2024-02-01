@@ -2,8 +2,11 @@
 
 .columns {
     display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 100px;
+
+    @media (min-width: $desktop) {
+        grid-template-columns: 150px 1fr;
+        gap: 100px;
+    }
 
     &__title-text {
         font-size: 120px;
@@ -15,6 +18,8 @@
     }
 
     &__content {
-        margin-top: 2em;
+        @media (min-width: $desktop) {
+            margin-top: 2em;
+        }
     }
 }

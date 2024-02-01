@@ -2,16 +2,28 @@
 
 .contact {
     &__message {
-        font-size: 120px;
+        font-size: 90px;
         text-transform: uppercase;
         font-family: $ff-mono;
         font-weight: $fw-bold;
+        
+        @media (min-width: $tablet) {
+            font-size: 120px;
+        }
     }
 
     &__locations {
-        margin-top: 120px;
+        margin-top: 80px;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: flex-start;
+        gap: 50px;
+
+        @media (min-width: 600px) {
+            margin-top: 120px;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
     }
 }

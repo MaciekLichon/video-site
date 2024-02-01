@@ -1,9 +1,14 @@
 @import "../../../../styles/variables.scss";
 
 .person {
-    &__img {
-        aspect-ratio: 1/1;
-        object-fit: cover;
+    $custom-small-breakpoint: 600px;
+    $custom-big-breakpoint: calc($tablet - 1px);
+
+    &__image {
+        &-img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
     }
 
     &__name {
@@ -21,5 +26,33 @@
 
     &__description {
         margin-top: 1rem;
+    }
+
+    @media (min-width: $custom-small-breakpoint) and (max-width: $custom-big-breakpoint) {
+        display: flex;
+        gap: 20px;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        &__image {
+            flex: 1;
+
+            &-img {
+                height: 100%;
+                width: 100%;
+                max-height: 400px;
+                aspect-ratio: unset;
+            }
+        }
+
+        &__text {
+            flex: 1;
+        }
+
+        &__name {
+            margin-top: 0;
+        }
     }
 }

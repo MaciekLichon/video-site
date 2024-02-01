@@ -3,17 +3,28 @@
 .people {
     &__content {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 100px;
+
+        @media (min-width: $tablet) {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 100px;
+        }
     }
 
     &__column {
         display: flex;
         flex-direction: column;
-        gap: 100px;
+        gap: 50px;
+
+        @media (min-width: $tablet) {
+            gap: 100px;
+        }
 
         &:nth-child(2) {
-            margin-top: 200px;
+            margin-top: 50px;
+
+            @media (min-width: $tablet) {
+                margin-top: 200px;
+            }
         }
     }
 }

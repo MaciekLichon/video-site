@@ -19,12 +19,13 @@ const VideoPage: React.FC = () => {
     const videoDetails = videosData.find((item) => item.id === id);
 
     const videoRef = useRef<HTMLVideoElement>(null);
+    const timelineRef = useRef<HTMLDivElement>(null);
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
-    const [duration, setDuration] = useState("");
-    const [currentTime, setCurrentTime] = useState("");
+    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
 
     const playVideo = () => {
         videoRef.current?.play();
@@ -33,16 +34,16 @@ const VideoPage: React.FC = () => {
         videoRef.current?.pause();
     };
 
-    const handlePlayState = () => {
+    const changePlayState = () => {
         isPlaying ? pauseVideo() : playVideo();
         setIsPlaying(!isPlaying);
     };
 
-    const handleSizeState = () => {
+    const changeSize = () => {
         setIsFullScreen(!isFullScreen);
     };
 
-    const handleVolumeState = () => {
+    const changeVolume = () => {
         setIsMuted(!isMuted);
     };
 
@@ -62,20 +63,19 @@ const VideoPage: React.FC = () => {
         }
     };
 
-    const setInitialTimestamps = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-        const totalDuration = formatTime(e.currentTarget.duration);
-        console.log(totalDuration.length);
+    const getVideoProgress = () => {
+        return (currentTime * 100) / duration;
+    };
 
-        let initialTime = "";
-        for (let i = 0; i < totalDuration.length; i++) {
-            if (i === 2 || i == 5) {
-                initialTime = ":" + initialTime;
-            } else {
-                initialTime = "0" + initialTime;
-            }
+    const updateCurrentTime = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        const timelineWidth = timelineRef.current?.offsetWidth;
+        const timelineXPos = timelineRef.current?.getBoundingClientRect().left;
+        const mouseXPos = e.clientX;
+
+        if (timelineXPos && timelineWidth && videoRef.current) {
+            const relativeWidthPercent = (mouseXPos - timelineXPos) / timelineWidth;
+            videoRef.current.currentTime = duration * relativeWidthPercent;
         }
-        setCurrentTime(initialTime);
-        setDuration(totalDuration);
     };
 
     return (
@@ -85,18 +85,18 @@ const VideoPage: React.FC = () => {
                     <video
                         ref={videoRef}
                         className="video-page__video"
-                        controls
+                        // controls
                         muted={isMuted}
-                        onClick={handlePlayState}
-                        onLoadedData={setInitialTimestamps}
-                        onTimeUpdate={(e) => setCurrentTime(formatTime(e.currentTarget.currentTime))}
-                        onEnded={() => setIsPlaying(false)} // this is going to work properly once 'controls' is removed
+                        onClick={changePlayState} // this is going to work properly once 'controls' is removed
+                        onLoadedData={(e) => setDuration(e.currentTarget.duration)}
+                        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                        onEnded={() => setIsPlaying(false)}
                     >
                         <source src={videoDetails?.video} type="video/mp4" />
                     </video>
                     <button
                         className="video-page__button video-page__button_small video-page__button_minimize"
-                        onClick={handleSizeState}
+                        onClick={changeSize}
                     >
                         <img src={iconMinimize} alt="icon minimize" />
                     </button>
@@ -105,23 +105,33 @@ const VideoPage: React.FC = () => {
             <div className="video-page__controls container">
                 <p className="video-page__controls-name">{videoDetails?.name}</p>
                 <div className="video-page__controls-buttons">
-                    <button className="video-page__button button-play" onClick={handlePlayState}>
+                    <button className="video-page__button video-page__button_play" onClick={changePlayState}>
                         <img src={isPlaying ? iconPause : iconPlay} alt="icon play" />
                     </button>
                     <div className="video-page__controls-duration">
-                        <p className="video-page__controls-duration__current">{currentTime}</p>
-                        <p className="video-page__controls-duration__total">{duration}</p>
+                        <p className="video-page__controls-duration__current">{formatTime(currentTime)}</p>
+                        <div
+                            ref={timelineRef}
+                            className="video-page__controls-duration__timeline"
+                            onClick={updateCurrentTime}
+                        >
+                            <span
+                                className="video-page__controls-duration__timeline-thumb"
+                                style={{ width: `${getVideoProgress()}%` }}
+                            ></span>
+                        </div>
+                        <p className="video-page__controls-duration__total">{formatTime(duration)}</p>
                     </div>
                     <div className="video-page__controls-buttons__group">
                         <button
                             className="video-page__button video-page__button_small button-volume"
-                            onClick={handleVolumeState}
+                            onClick={changeVolume}
                         >
                             <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
                         </button>
                         <button
                             className="video-page__button video-page__button_small button-size"
-                            onClick={handleSizeState}
+                            onClick={changeSize}
                         >
                             <img src={iconMaximize} alt="icon maximize" />
                         </button>
