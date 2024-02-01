@@ -1,16 +1,9 @@
-import awardOne from "../assets/images/award-1.jpg";
-import awardTwo from "../assets/images/award-2.jpg";
-import awardThree from "../assets/images/award-3.jpg";
-import awardFour from "../assets/images/award-4.jpg";
-import awardFive from "../assets/images/award-5.jpg";
-import awardSix from "../assets/images/award-6.jpg";
-
 export interface IAward {
     award: string;
     description: string;
     title: string;
     year: string;
-    image: string;
+    video: string;
 }
 
 export const awardsData: IAward[] = [
@@ -19,14 +12,14 @@ export const awardsData: IAward[] = [
         description: "Recognized for pioneering innovative nap strategies, creating a purrfectly relaxed workplace.",
         title: "SnoozeMaster Excellence Award",
         year: "2024",
-        image: awardOne,
+        video: videoPreview1,
     },
     {
         award: "Silver Purr",
         description: "Acknowledged for outstanding mediation, fostering a harmonious and playful feline community.",
         title: "Paw-sitive Harmony Accolade",
         year: "2023",
-        image: awardTwo,
+        video: videoPreview2,
     },
     {
         award: "Bronze Beam",
@@ -34,7 +27,7 @@ export const awardsData: IAward[] = [
             "Celebrated for expertly optimizing sunbeam access, enhancing well-being through strategic basking.",
         title: "Solar Serenity Accolade",
         year: "2021",
-        image: awardThree,
+        video: videoPreview3,
     },
     {
         award: "Platinum Treat",
@@ -42,7 +35,7 @@ export const awardsData: IAward[] = [
             "Awarded for exceptional treat curation, delighting taste buds and promoting nutritional excellence.",
         title: "Gourmet Whisker Delight",
         year: "2023",
-        image: awardFour,
+        video: videoPreview4,
     },
     {
         award: "Diamond Whisk",
@@ -50,7 +43,7 @@ export const awardsData: IAward[] = [
             "Recognized for creating a whisker-centric culture, prioritizing the happiness of feline employees.",
         title: "WhiskerWonder Distinction",
         year: "2022",
-        image: awardFive,
+        video: videoPreview5,
     },
     {
         award: "Pawsome Platinum",
@@ -58,7 +51,7 @@ export const awardsData: IAward[] = [
             "Honored for overall excellence in feline-friendly corporate practices and pawsitive workplace initiatives.",
         title: "Purrfection Pioneer Award",
         year: "2022",
-        image: awardSix,
+        video: videoPreview6,
     },
 ];
 
@@ -143,11 +136,19 @@ import works4 from "../assets/images/works-4.jpg";
 import works5 from "../assets/images/works-5.jpg";
 import works6 from "../assets/images/works-6.jpg";
 
+import videoPreview1 from "../assets/videos/video-preview-1.mp4";
+import videoPreview2 from "../assets/videos/video-preview-2.mp4";
+import videoPreview3 from "../assets/videos/video-preview-3.mp4";
+import videoPreview4 from "../assets/videos/video-preview-4.mp4";
+import videoPreview5 from "../assets/videos/video-preview-5.mp4";
+import videoPreview6 from "../assets/videos/video-preview-6.mp4";
+
 export interface IVideo {
     id: string;
     link: string;
     name: string;
     preview: string;
+    video: string;
 }
 
 export const videosData: IVideo[] = [
@@ -156,35 +157,41 @@ export const videosData: IVideo[] = [
         link: "https://player.vimeo.com/video/482533185?background=1",
         name: "Napflix and Chill: The Purrvana Chronicles",
         preview: works1,
+        video: videoPreview1,
     },
     {
         id: "2",
         link: "https://player.vimeo.com/video/482533185?background=1",
         name: "WhiskerWhirl: A Feline Odyssey",
         preview: works2,
+        video: videoPreview2,
     },
     {
         id: "3",
         link: "https://player.vimeo.com/video/482533185?background=1",
         name: "Treatopia: Culinary Whisker Delights",
         preview: works3,
+        video: videoPreview3,
     },
     {
         id: "4",
         link: "https://player.vimeo.com/video/482533185?background=1",
         name: "Paws of Harmony: Feline Relations Unleashed 2",
         preview: works4,
+        video: videoPreview4,
     },
     {
         id: "5",
         link: "https://player.vimeo.com/video/482533185?background=1",
         name: "Sunbeam Symphony: A Strategic Catventure",
         preview: works5,
+        video: videoPreview5,
     },
     {
         id: "6",
         link: "https://player.vimeo.com/video/482533185?background=1",
         name: "Paws of Harmony: Feline Relations Unleashed",
         preview: works6,
+        video: videoPreview6,
     },
 ];

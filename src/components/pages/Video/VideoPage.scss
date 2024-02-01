@@ -1,0 +1,98 @@
+@import "../../../styles/variables.scss";
+
+.video-page {
+
+    &__player {
+        &_fullscreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            aspect-ratio: unset;
+            z-index: 1000000;
+    
+            .video-page__button_minimize {
+                display: block;
+            }
+        }
+    }
+
+    &__video {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+    }
+
+    &__controls {
+        padding-block: 1rem;
+        display: flex;
+        align-items: center;
+
+        &-name {
+            text-transform: uppercase;
+            margin-right: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            &::after {
+                content: "";
+                width: 1px;
+                height: 3em;
+                background-color: $clr-text_dark;
+            }
+        }
+
+        &-duration {
+            display: flex;
+        }
+
+        &-buttons {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &__group {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+    }
+
+    &__button {
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &_small {
+            width: 25px;
+            height: 25px;
+        }
+
+        &_minimize {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 50px;
+            right: 50px;
+        }
+    }
+}
+
+.button {
+    &-minimize {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: 50px;
+        right: 50px;
+    }
+}

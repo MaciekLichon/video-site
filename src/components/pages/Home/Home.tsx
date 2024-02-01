@@ -10,15 +10,17 @@ import iconTrophy from "../../../assets/icons/icon-trophy.svg";
 import iconVideo from "../../../assets/icons/icon-video.svg";
 import logo from "../../../assets/icons/logo.svg";
 
+import bgVideo from "../../../assets/videos/video-bg.mp4";
+
 interface IProps {
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Home: React.FC<IProps> = ({ setIsLoading }) => {
     return (
         <section className="home">
             <div className="home__video">
-                <iframe
+                {/* <iframe
                     className="home__player"
                     src="https://player.vimeo.com/video/373604133?background=1"
                     frameBorder="0"
@@ -26,7 +28,10 @@ const Home: React.FC<IProps> = ({ setIsLoading }) => {
                     onLoad={() => {
                         setIsLoading(false);
                     }}
-                ></iframe>
+                ></iframe> */}
+                <video className="home__player" autoPlay muted>
+                    <source src={bgVideo} type="video/mp4" />
+                </video>
             </div>
 
             <div className="home__panel container">
