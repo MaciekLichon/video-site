@@ -195,3 +195,37 @@ export const videosData: IVideo[] = [
         video: videoPreview6,
     },
 ];
+
+export interface INavLink {
+    to: string;
+    text: string;
+    availableInHeader: boolean;
+}
+
+export const navLinksData: INavLink[] = [
+    {
+        to: '/videos',
+        text: 'Works',
+        availableInHeader: true
+    },
+    {
+        to: '/people',
+        text: 'Squad',
+        availableInHeader: true
+    },
+    {
+        to: '/contact',
+        text: 'Contact',
+        availableInHeader: true
+    },
+    {
+        to: '/awards',
+        text: 'Awards',
+        availableInHeader: false
+    },
+    {
+        to: '/about',
+        text: 'About',
+        availableInHeader: false
+    },
+]

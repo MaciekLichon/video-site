@@ -3,6 +3,13 @@
 .awards {
     &__content {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+
+        @media (min-width: $tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: $desktop) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }

@@ -29,7 +29,7 @@ const Home: React.FC<IProps> = ({ setIsLoading }) => {
                         setIsLoading(false);
                     }}
                 ></iframe> */}
-                <video className="home__player" autoPlay muted>
+                <video className="home__player" autoPlay muted loop>
                     <source src={bgVideo} type="video/mp4" />
                 </video>
             </div>

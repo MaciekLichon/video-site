@@ -70,17 +70,19 @@
 
         .header__nav-list {
             display: grid;
-            grid-template-columns: 300px 300px;
-            column-gap: 5rem;
             row-gap: 1rem;
+            grid-template-columns: 250px;
+
+            
+            @media (min-width: $tablet) {
+                grid-template-columns: 300px 300px;
+                column-gap: 5rem;
+            }
         }
 
         .header__nav-item {
             border-bottom: 1px solid $clr-text_dark;
-
-            &_optional {
-                display: block;
-            }
+            display: block;
         }
 
         .header__nav-link {
@@ -190,11 +192,23 @@
         display: grid;
 
         &-list {
-            display: flex;
-            gap: 10rem;
+            display: none;
+
+            @media (min-width: $tablet) {
+                display: flex;
+                gap: 10rem;
+            }
         }
 
-        &-item_optional {
+        &-item {
+            display: none;
+        }
+
+        &-item_inHeader {
+            display: block;
+        }
+
+        &-item_hidden {
             display: none;
         }
 

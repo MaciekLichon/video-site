@@ -32,21 +32,34 @@
     &__controls {
         padding-block: 1rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
+
+        @media (min-width: $tablet) {
+            flex-direction: row;
+        }
 
         &-name {
             text-transform: uppercase;
-            margin-right: 1rem;
             position: relative;
             display: flex;
             align-items: center;
             gap: 1rem;
 
+            @media (min-width: $tablet) {
+                margin-right: 1rem;
+            }
+
             &::after {
+                display: none;
                 content: "";
                 width: 1px;
                 height: 3em;
                 background-color: $clr-text_dark;
+
+                @media (min-width: $tablet) {
+                    display: block;
+                }
             }
         }
 
@@ -91,13 +104,38 @@
 
         &-buttons {
             flex: 1;
+            width: 100%;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+
+            @media (min-width: $tablet) {
+                gap: 0;
+                margin-top: 0;
+                flex-direction: row;
+                width: auto;
+                align-items: center;
+            }
+
+            &__category {
+                display: flex;
+                justify-content: flex-end;
+
+                @media (min-width: $tablet) {
+                    &:first-child {
+                        flex: 1;
+                    }
+                }
+            }
 
             &__group {
                 display: flex;
                 gap: 0.5rem;
-                margin-left: 3rem;
+
+                @media (min-width: $tablet) {
+                    margin-left: 3rem;
+                }
             }
         }
     }
@@ -117,7 +155,10 @@
         }
 
         &_play {
-            margin-right: 1rem;
+            margin-right: 0.5rem;
+            @media (min-width: $tablet) {
+                margin-right: 1rem;
+            }
         }
 
         &_minimize {

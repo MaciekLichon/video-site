@@ -90,6 +90,10 @@
     z-index: 100;
     animation: showFooter 1000ms 200ms;
     animation-fill-mode: backwards;
+    
+    @media (max-width: calc($tablet - 1px)) and (max-height: 739px) {
+        display: none;
+    }
 
     @keyframes showFooter {
         from {

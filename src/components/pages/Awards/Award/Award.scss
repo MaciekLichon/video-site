@@ -10,8 +10,21 @@
     background-color: $clr-200;
     transition: background-color 300ms;
     
-    &:nth-child(3n - 1) {
-        border-inline: 1px solid $clr-text_dark;
+
+    @media (min-width: $tablet) {
+        &:nth-child(even) {
+            border-left: 1px solid $clr-text_dark;
+        }
+    }
+
+    @media (min-width: $desktop) {
+        &:nth-child(even) {
+            border-left: none;
+        }
+
+        &:nth-child(3n - 1) {
+            border-inline: 1px solid $clr-text_dark;
+        }
     }
 
     &:hover {

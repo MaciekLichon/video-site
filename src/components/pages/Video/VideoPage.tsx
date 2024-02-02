@@ -105,44 +105,48 @@ const VideoPage: React.FC = () => {
             <div className="video-page__controls container">
                 <p className="video-page__controls-name">{videoDetails?.name}</p>
                 <div className="video-page__controls-buttons">
-                    <button className="video-page__button video-page__button_play" onClick={changePlayState}>
-                        <img src={isPlaying ? iconPause : iconPlay} alt="icon play" />
-                    </button>
-                    <div className="video-page__controls-duration">
-                        <p className="video-page__controls-duration__current">{formatTime(currentTime)}</p>
-                        <div
-                            ref={timelineRef}
-                            className="video-page__controls-duration__timeline"
-                            onClick={updateCurrentTime}
-                        >
-                            <span
-                                className="video-page__controls-duration__timeline-thumb"
-                                style={{ width: `${getVideoProgress()}%` }}
-                            ></span>
+                    <div className="video-page__controls-buttons__category">
+                        <button className="video-page__button video-page__button_play" onClick={changePlayState}>
+                            <img src={isPlaying ? iconPause : iconPlay} alt="icon play" />
+                        </button>
+                        <div className="video-page__controls-duration">
+                            <p className="video-page__controls-duration__current">{formatTime(currentTime)}</p>
+                            <div
+                                ref={timelineRef}
+                                className="video-page__controls-duration__timeline"
+                                onClick={updateCurrentTime}
+                            >
+                                <span
+                                    className="video-page__controls-duration__timeline-thumb"
+                                    style={{ width: `${getVideoProgress()}%` }}
+                                ></span>
+                            </div>
+                            <p className="video-page__controls-duration__total">{formatTime(duration)}</p>
                         </div>
-                        <p className="video-page__controls-duration__total">{formatTime(duration)}</p>
                     </div>
-                    <div className="video-page__controls-buttons__group">
-                        <button
-                            className="video-page__button video-page__button_small button-volume"
-                            onClick={changeVolume}
-                        >
-                            <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
-                        </button>
-                        <button
-                            className="video-page__button video-page__button_small button-size"
-                            onClick={changeSize}
-                        >
-                            <img src={iconMaximize} alt="icon maximize" />
-                        </button>
-                    </div>
-                    <div className="video-page__controls-buttons__group">
-                        <button className="video-page__button video-page__button_small button-previous">
-                            <img src={iconPrevious} alt="icon previous" />
-                        </button>
-                        <button className="video-page__button video-page__button_small button-next">
-                            <img src={iconNext} alt="icon next" />
-                        </button>
+                    <div className="video-page__controls-buttons__category">
+                        <div className="video-page__controls-buttons__group">
+                            <button
+                                className="video-page__button video-page__button_small button-volume"
+                                onClick={changeVolume}
+                            >
+                                <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
+                            </button>
+                            <button
+                                className="video-page__button video-page__button_small button-size"
+                                onClick={changeSize}
+                            >
+                                <img src={iconMaximize} alt="icon maximize" />
+                            </button>
+                        </div>
+                        <div className="video-page__controls-buttons__group">
+                            <button className="video-page__button video-page__button_small button-previous">
+                                <img src={iconPrevious} alt="icon previous" />
+                            </button>
+                            <button className="video-page__button video-page__button_small button-next">
+                                <img src={iconNext} alt="icon next" />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
