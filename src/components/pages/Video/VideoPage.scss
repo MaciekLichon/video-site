@@ -2,6 +2,7 @@
 
 .video-page {
     &__player {
+        position: relative;
         &_fullscreen {
             position: absolute;
             top: 0;
@@ -27,6 +28,70 @@
         height: 100%;
         aspect-ratio: 2 / 1;
         object-fit: cover;
+    }
+
+    &__video-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+
+        grid-template-columns: 1fr 60% 1fr;
+
+        @media (min-width: $desktop) {
+            display: grid;
+        }
+
+        &__item {
+            display: grid;
+            grid-template-columns: 0fr;
+            transition: grid-template-columns 300ms;
+
+            &:hover {
+                grid-template-columns: 1fr;
+            }
+
+            div {
+                overflow: hidden;
+
+                backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                position: relative;
+
+                color: $clr-text_light;
+                font-weight: $fw-black;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 5px;
+                    background-color: $clr-text_light;
+                    top: 0;
+                }
+            }
+
+            &_left {
+                div::after {
+                    right: 0;
+                }
+            }
+
+            &_right {
+                direction: rtl;
+                grid-column: 3;
+                text-align: right;
+
+                div::after {
+                    left: 0;
+                }
+            }
+        }
     }
 
     &__controls {

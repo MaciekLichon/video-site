@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import { AnimatePresence } from "framer-motion";
 
 import Loading from "./components/pages/Loading/Loading";
@@ -18,13 +18,14 @@ const App: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [previewFinished, setPreviewFinished] = useState(false);
 
+    const location = useLocation();
     return (
         <>
             {/* {(isLoading || !previewFinished) && <Loading setPreviewFinished={setPreviewFinished} />} */}
             <>
                 <Header />
                 <AnimatePresence mode="wait">
-                    <Routes>
+                    <Routes location={location} key={location.pathname}>
                         <Route path="" element={<Home setIsLoading={setIsLoading} />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/awards" element={<Awards />} />

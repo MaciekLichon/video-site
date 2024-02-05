@@ -1,6 +1,6 @@
 import "./VideoPage.scss";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { videosData } from "../../../data/data";
@@ -14,19 +14,39 @@ import iconSound from "../../../assets/icons/player-sound.svg";
 import iconNext from "../../../assets/icons/player-next.svg";
 import iconPrevious from "../../../assets/icons/player-previous.svg";
 import TransitionedPage from "../../common/TransitionedPage/TransitionedPage";
+import { Link } from "react-router-dom";
 
 const VideoPage: React.FC = () => {
     const { id } = useParams();
     const videoDetails = videosData.find((item) => item.id === id);
+    const videosCount = videosData.length;
 
     const videoRef = useRef<HTMLVideoElement>(null);
     const timelineRef = useRef<HTMLDivElement>(null);
 
+    const [neighbourVideos, setNeighbourVideos] = useState({
+        next: "",
+        prev: "",
+    });
     const [isPlaying, setIsPlaying] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
+
+    useEffect(() => {
+        if (id) {
+            const numId = parseInt(id);
+
+            if (numId === 1) {
+                setNeighbourVideos({ next: `${numId + 1}`, prev: `${videosCount}` });
+            } else if (numId === videosCount) {
+                setNeighbourVideos({ next: "1", prev: `${numId - 1}` });
+            } else {
+                setNeighbourVideos({ next: `${numId + 1}`, prev: `${numId - 1}` });
+            }
+        }
+    }, [id]);
 
     const playVideo = () => {
         videoRef.current?.play();
@@ -89,13 +109,28 @@ const VideoPage: React.FC = () => {
                             className="video-page__video"
                             // controls
                             muted={isMuted}
-                            onClick={changePlayState} // this is going to work properly once 'controls' is removed
+                            // onClick={changePlayState} // this is going to work properly once 'controls' is removed
                             onLoadedData={(e) => setDuration(e.currentTarget.duration)}
                             onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
                             onEnded={() => setIsPlaying(false)}
                         >
                             <source src={videoDetails?.video} type="video/mp4" />
                         </video>
+                        {/* onClick={changePlayState} */}
+                        <div className="video-page__video-overlay">
+                            <Link
+                                to={`/videos/${neighbourVideos.prev}`}
+                                className="video-page__video-overlay__item video-page__video-overlay__item_left"
+                            >
+                                <div>PREVIOUS</div>
+                            </Link>
+                            <Link
+                                to={`/videos/${neighbourVideos.next}`}
+                                className="video-page__video-overlay__item video-page__video-overlay__item_right"
+                            >
+                                <div>NEXT</div>
+                            </Link>
+                        </div>
                         <button
                             className="video-page__button video-page__button_small video-page__button_minimize"
                             onClick={changeSize}
