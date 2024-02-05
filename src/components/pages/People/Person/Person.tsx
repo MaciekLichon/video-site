@@ -26,6 +26,7 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                     transition={{
                         duration: 1.5,
                     }}
+                    viewport={{ once: true }}
                     src={image}
                     alt="person image"
                     className="person__image-img"
@@ -36,6 +37,7 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                     initial="hidden"
                     whileInView="visible"
                     variants={pVariants}
+                    viewport={{ once: true }}
                     transition={{ duration: 1 }}
                     className="person__name"
                 >
@@ -45,6 +47,7 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                     initial="hidden"
                     whileInView="visible"
                     variants={pVariants}
+                    viewport={{ once: true }}
                     transition={{ duration: 1 }}
                     className="person__title"
                 >
@@ -54,6 +57,7 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                     initial="hidden"
                     whileInView="visible"
                     variants={pVariants}
+                    viewport={{ once: true }}
                     transition={{ duration: 1 }}
                     className="person__description"
                 >

@@ -13,6 +13,7 @@ import iconMute from "../../../assets/icons/player-mute.svg";
 import iconSound from "../../../assets/icons/player-sound.svg";
 import iconNext from "../../../assets/icons/player-next.svg";
 import iconPrevious from "../../../assets/icons/player-previous.svg";
+import TransitionedPage from "../../common/TransitionedPage/TransitionedPage";
 
 const VideoPage: React.FC = () => {
     const { id } = useParams();
@@ -79,78 +80,80 @@ const VideoPage: React.FC = () => {
     };
 
     return (
-        <section className="video-page">
-            <div className="container-big">
-                <div className={`video-page__player ${isFullScreen ? "video-page__player_fullscreen" : ""}`}>
-                    <video
-                        ref={videoRef}
-                        className="video-page__video"
-                        // controls
-                        muted={isMuted}
-                        onClick={changePlayState} // this is going to work properly once 'controls' is removed
-                        onLoadedData={(e) => setDuration(e.currentTarget.duration)}
-                        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-                        onEnded={() => setIsPlaying(false)}
-                    >
-                        <source src={videoDetails?.video} type="video/mp4" />
-                    </video>
-                    <button
-                        className="video-page__button video-page__button_small video-page__button_minimize"
-                        onClick={changeSize}
-                    >
-                        <img src={iconMinimize} alt="icon minimize" />
-                    </button>
-                </div>
-            </div>
-            <div className="video-page__controls container">
-                <p className="video-page__controls-name">{videoDetails?.name}</p>
-                <div className="video-page__controls-buttons">
-                    <div className="video-page__controls-buttons__category">
-                        <button className="video-page__button video-page__button_play" onClick={changePlayState}>
-                            <img src={isPlaying ? iconPause : iconPlay} alt="icon play" />
+        <TransitionedPage>
+            <section className="video-page">
+                <div className="container-big">
+                    <div className={`video-page__player ${isFullScreen ? "video-page__player_fullscreen" : ""}`}>
+                        <video
+                            ref={videoRef}
+                            className="video-page__video"
+                            // controls
+                            muted={isMuted}
+                            onClick={changePlayState} // this is going to work properly once 'controls' is removed
+                            onLoadedData={(e) => setDuration(e.currentTarget.duration)}
+                            onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                            onEnded={() => setIsPlaying(false)}
+                        >
+                            <source src={videoDetails?.video} type="video/mp4" />
+                        </video>
+                        <button
+                            className="video-page__button video-page__button_small video-page__button_minimize"
+                            onClick={changeSize}
+                        >
+                            <img src={iconMinimize} alt="icon minimize" />
                         </button>
-                        <div className="video-page__controls-duration">
-                            <p className="video-page__controls-duration__current">{formatTime(currentTime)}</p>
-                            <div
-                                ref={timelineRef}
-                                className="video-page__controls-duration__timeline"
-                                onClick={updateCurrentTime}
-                            >
-                                <span
-                                    className="video-page__controls-duration__timeline-thumb"
-                                    style={{ width: `${getVideoProgress()}%` }}
-                                ></span>
-                            </div>
-                            <p className="video-page__controls-duration__total">{formatTime(duration)}</p>
-                        </div>
                     </div>
-                    <div className="video-page__controls-buttons__category">
-                        <div className="video-page__controls-buttons__group">
-                            <button
-                                className="video-page__button video-page__button_small button-volume"
-                                onClick={changeVolume}
-                            >
-                                <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
+                </div>
+                <div className="video-page__controls container">
+                    <p className="video-page__controls-name">{videoDetails?.name}</p>
+                    <div className="video-page__controls-buttons">
+                        <div className="video-page__controls-buttons__category">
+                            <button className="video-page__button video-page__button_play" onClick={changePlayState}>
+                                <img src={isPlaying ? iconPause : iconPlay} alt="icon play" />
                             </button>
-                            <button
-                                className="video-page__button video-page__button_small button-size"
-                                onClick={changeSize}
-                            >
-                                <img src={iconMaximize} alt="icon maximize" />
-                            </button>
+                            <div className="video-page__controls-duration">
+                                <p className="video-page__controls-duration__current">{formatTime(currentTime)}</p>
+                                <div
+                                    ref={timelineRef}
+                                    className="video-page__controls-duration__timeline"
+                                    onClick={updateCurrentTime}
+                                >
+                                    <span
+                                        className="video-page__controls-duration__timeline-thumb"
+                                        style={{ width: `${getVideoProgress()}%` }}
+                                    ></span>
+                                </div>
+                                <p className="video-page__controls-duration__total">{formatTime(duration)}</p>
+                            </div>
                         </div>
-                        <div className="video-page__controls-buttons__group">
-                            <button className="video-page__button video-page__button_small button-previous">
-                                <img src={iconPrevious} alt="icon previous" />
-                            </button>
-                            <button className="video-page__button video-page__button_small button-next">
-                                <img src={iconNext} alt="icon next" />
-                            </button>
+                        <div className="video-page__controls-buttons__category">
+                            <div className="video-page__controls-buttons__group">
+                                <button
+                                    className="video-page__button video-page__button_small button-volume"
+                                    onClick={changeVolume}
+                                >
+                                    <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
+                                </button>
+                                <button
+                                    className="video-page__button video-page__button_small button-size"
+                                    onClick={changeSize}
+                                >
+                                    <img src={iconMaximize} alt="icon maximize" />
+                                </button>
+                            </div>
+                            <div className="video-page__controls-buttons__group">
+                                <button className="video-page__button video-page__button_small button-previous">
+                                    <img src={iconPrevious} alt="icon previous" />
+                                </button>
+                                <button className="video-page__button video-page__button_small button-next">
+                                    <img src={iconNext} alt="icon next" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </TransitionedPage>
     );
 };
 

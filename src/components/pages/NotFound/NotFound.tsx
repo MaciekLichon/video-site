@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
+import TransitionedPage from "../../common/TransitionedPage/TransitionedPage";
 
 const NotFound: React.FC = () => {
-  return (
-    <div className="">not found</div>
-  );
+    return (
+        <TransitionedPage>
+            <div className="">not found</div>
+        </TransitionedPage>
+    );
 };
 
 export default NotFound;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router";
+import { AnimatePresence } from "framer-motion";
 
 import Loading from "./components/pages/Loading/Loading";
 import About from "./components/pages/About/About";
@@ -22,16 +23,18 @@ const App: React.FC = () => {
             {/* {(isLoading || !previewFinished) && <Loading setPreviewFinished={setPreviewFinished} />} */}
             <>
                 <Header />
-                <Routes>
-                    <Route path="" element={<Home setIsLoading={setIsLoading} />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/awards" element={<Awards />} />
-                    <Route path="/people" element={<People />} />
-                    <Route path="/videos" element={<Videos />} />
-                    <Route path="/videos/:id" element={<VideoPage />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <AnimatePresence mode="wait">
+                    <Routes>
+                        <Route path="" element={<Home setIsLoading={setIsLoading} />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/awards" element={<Awards />} />
+                        <Route path="/people" element={<People />} />
+                        <Route path="/videos" element={<Videos />} />
+                        <Route path="/videos/:id" element={<VideoPage />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </AnimatePresence>
                 <Footer />
             </>
         </>
