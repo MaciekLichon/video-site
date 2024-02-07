@@ -1,4 +1,4 @@
-import "./Header.scss";
+import "./NewHeader.scss";
 
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -7,7 +7,7 @@ import logoDark from "../../../assets/icons/logo-dark.svg";
 import logoLight from "../../../assets/icons/logo.svg";
 import { navLinksData } from "../../../data/data";
 
-const Header: React.FC = () => {
+const NewHeader: React.FC = () => {
     const [status, setStatus] = useState<"closed" | "opening" | "closing" | "open">("closed");
     const location = useLocation();
 
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
     };
 
     return (
-        <header className={`header ${location.pathname === "/" ? "header_home" : ""} ${status}`}>
+        <header className={`header ${location.pathname === "/" ? "onHome" : ""} ${status}`}>
             <div className="header__content container">
                 <div className="header__toggle">
                     <button className="header__toggle-button" onClick={toggleMenu}>
@@ -43,9 +43,6 @@ const Header: React.FC = () => {
                         <span></span>
                         <span></span>
                     </button>
-                    <Link to="/" className="header__toggle-logo" onClick={closeMenu}>
-                        <img src={(location.pathname === "/" && status === "closed") ? logoLight : logoDark} alt="logo" />
-                    </Link>
                 </div>
                 <nav className="header__nav">
                     <ul className="header__nav-list">
@@ -54,8 +51,6 @@ const Header: React.FC = () => {
                                 key={link.text}
                                 className={`header__nav-item ${
                                     link.availableInHeader ? "header__nav-item_inHeader" : ""
-                                } ${
-                                    link.availableInHeader && location.pathname === "/" ? "header__nav-item_hidden" : ""
                                 }`}
                             >
                                 <NavLink className="header__nav-link" to={link.to} onClick={closeMenu}>
@@ -65,16 +60,20 @@ const Header: React.FC = () => {
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >
-                                        <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                                        {" "}
+                                        <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />{" "}
                                     </svg>
                                 </NavLink>
                             </li>
                         ))}
                     </ul>
                 </nav>
+                <Link to="/" className="header__logo" onClick={closeMenu}>
+                    <img src={logoDark} alt="logo" />
+                </Link>
             </div>
         </header>
     );
 };
 
-export default Header;
+export default NewHeader;

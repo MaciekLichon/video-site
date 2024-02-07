@@ -2,6 +2,7 @@ import "./Home.scss";
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import iconCalendar from "../../../assets/icons/icon-contact.svg";
 import iconInfo from "../../../assets/icons/icon-info.svg";
@@ -18,7 +19,13 @@ interface IProps {
 
 const Home: React.FC<IProps> = ({ setIsLoading }) => {
     return (
-        <section className="home">
+        <motion.section
+            className="home"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "linear" }}
+        >
             <div className="home__video">
                 {/* <iframe
                     className="home__player"
@@ -85,7 +92,7 @@ const Home: React.FC<IProps> = ({ setIsLoading }) => {
                     </a>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

@@ -11,8 +11,9 @@ import People from "./components/pages/People/People";
 import Videos from "./components/pages/Videos/Videos";
 import Contact from "./components/pages/Contact/Contact";
 import Footer from "./components/common/Footer/Footer";
-import Header from "./components/common/Header/Header";
+// import Header from "./components/common/Header/Header";
 import VideoPage from "./components/pages/Video/VideoPage";
+import NewHeader from "./components/common/NewHeader/NewHeader";
 
 const App: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +24,7 @@ const App: React.FC = () => {
         <>
             {/* {(isLoading || !previewFinished) && <Loading setPreviewFinished={setPreviewFinished} />} */}
             <>
-                <Header />
+                <NewHeader />
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>
                         <Route path="" element={<Home setIsLoading={setIsLoading} />} />

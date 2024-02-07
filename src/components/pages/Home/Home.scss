@@ -49,6 +49,11 @@
     }
 
     &__nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
         @media (min-width: $tablet) {
             display: grid;
             justify-items: center;
@@ -65,6 +70,24 @@
 
             @media (min-width: $tablet) {
                 display: block;
+            }
+
+            &[href="/videos"] {
+                display: block;
+                order: 3;
+
+                @media (min-width: $tablet) {
+                    order: unset;
+                }
+            }
+
+            &[href="/contact"] {
+                display: block;
+                order: 1;
+
+                @media (min-width: $tablet) {
+                    order: unset;
+                }
             }
 
             &::after {
@@ -87,20 +110,22 @@
         }
 
         &-logo {
+            order: 2;
+
             @media (min-width: $tablet) {
+                order: unset;
                 grid-column: span 3;
             }
         }
 
         &-locations {
-            display: flex;
+            display: none;
             gap: 0.5rem;
             color: $clr-text_light;
             justify-content: center;
-            margin-bottom: 1rem;
 
             @media (min-width: $tablet) {
-                margin-bottom: 0;
+                display: flex;
             }
 
             span {
@@ -127,16 +152,16 @@
     }
 
     &__socials {
-        display: flex;
-        align-items: center;
+        display: none;
         padding-bottom: 2rem;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-self: end;
+        gap: 0.25rem;
+        padding-bottom: 0;
 
         @media (min-width: $tablet) {
-            gap: 0.25rem;
-            padding-bottom: 0;
-            justify-self: end;
-            flex-direction: column;
+            display: flex;
         }
 
         &-link {
