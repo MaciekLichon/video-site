@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router";
 import { AnimatePresence } from "framer-motion";
 
-import Loading from "./components/pages/Loading/Loading";
+// import Loading from "./components/pages/Loading/Loading";
 import About from "./components/pages/About/About";
 import Awards from "./components/pages/Awards/Awards";
 import Home from "./components/pages/Home/Home";
@@ -16,8 +16,8 @@ import VideoPage from "./components/pages/Video/VideoPage";
 import NewHeader from "./components/common/NewHeader/NewHeader";
 
 const App: React.FC = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [previewFinished, setPreviewFinished] = useState(false);
+    // const [isLoading, setIsLoading] = useState(true);
+    // const [previewFinished, setPreviewFinished] = useState(false);
 
     const location = useLocation();
     return (
@@ -27,7 +27,8 @@ const App: React.FC = () => {
                 <NewHeader />
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>
-                        <Route path="" element={<Home setIsLoading={setIsLoading} />} />
+                        {/* <Route path="" element={<Home setIsLoading={setIsLoading} />} /> */}
+                        <Route path="" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/awards" element={<Awards />} />
                         <Route path="/people" element={<People />} />

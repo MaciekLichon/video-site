@@ -9,7 +9,6 @@
     position: relative;
     background-color: $clr-200;
     transition: background-color 300ms;
-    
 
     @media (min-width: $tablet) {
         &:nth-child(even) {
@@ -27,12 +26,15 @@
         }
     }
 
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: $clr-text_light;
+    // don't allow hover on touch
+    @media (hover: hover) {
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: $clr-text_light;
 
-        path {
-            fill: white;
+            path {
+                fill: white;
+            }
         }
     }
 

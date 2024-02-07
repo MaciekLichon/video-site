@@ -108,13 +108,14 @@ const VideoPage: React.FC = () => {
                             ref={videoRef}
                             className="video-page__video"
                             // controls
+                            playsInline // added to prevent default mobile players from opening
                             muted={isMuted}
                             // onClick={changePlayState} // this is going to work properly once 'controls' is removed
                             onLoadedData={(e) => setDuration(e.currentTarget.duration)}
                             onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
                             onEnded={() => setIsPlaying(false)}
                         >
-                            <source src={videoDetails?.video} type="video/mp4" />
+                            <source src={`${videoDetails?.video}#t=0.01`} type="video/mp4" />
                         </video>
                         {/* onClick={changePlayState} */}
                         <div className="video-page__video-overlay">

@@ -9,8 +9,11 @@
     display: flex;
     align-items: flex-end;
 
-    &:hover &__preview {
-        opacity: 0;
+    // don't allow hover on touch
+    @media (hover: hover) {
+        &:hover &__preview {
+            opacity: 0;
+        }
     }
 
     &:hover &__title::after {

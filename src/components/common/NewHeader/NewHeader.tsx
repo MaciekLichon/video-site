@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import logoDark from "../../../assets/icons/logo-dark.svg";
-import logoLight from "../../../assets/icons/logo.svg";
 import { navLinksData } from "../../../data/data";
 
 const NewHeader: React.FC = () => {

@@ -13,11 +13,11 @@ import logo from "../../../assets/icons/logo.svg";
 
 import bgVideo from "../../../assets/videos/video-bg.mp4";
 
-interface IProps {
-    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// interface IProps {
+//     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-const Home: React.FC<IProps> = ({ setIsLoading }) => {
+const Home: React.FC = () => {
     return (
         <motion.section
             className="home"
@@ -36,7 +36,7 @@ const Home: React.FC<IProps> = ({ setIsLoading }) => {
                         setIsLoading(false);
                     }}
                 ></iframe> */}
-                <video className="home__player" autoPlay muted loop>
+                <video className="home__player" autoPlay muted loop playsInline>
                     <source src={bgVideo} type="video/mp4" />
                 </video>
             </div>

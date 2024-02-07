@@ -22,11 +22,11 @@ button {
 
 body {
     background-color: $clr-200;
-    min-height: 100vh;
+    min-height: 100svh;
 }
 
 #root {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
 }
@@ -35,7 +35,8 @@ section {
     flex: 1;
     margin-top: 100px;
 
-    &.home, &.loading {
+    &.home,
+    &.loading {
         margin-top: 0;
     }
 }

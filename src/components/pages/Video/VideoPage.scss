@@ -3,6 +3,7 @@
 .video-page {
     &__player {
         position: relative;
+
         &_fullscreen {
             position: absolute;
             top: 0;
@@ -19,6 +20,10 @@
             .video-page__video {
                 object-fit: contain;
                 background-color: black;
+            }
+
+            .video-page__video-overlay {
+                display: none;
             }
         }
     }

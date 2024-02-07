@@ -4,7 +4,8 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { IVideo } from "../../../../data/data";
 
-const VideoPreview: React.FC<IVideo> = ({ id, name, link, preview, video }) => {
+const VideoPreview: React.FC<IVideo> = ({ id, name, preview, video }) => {
+    // link prop removed for build
     const playerRef = useRef<HTMLVideoElement>(null);
 
     const playVideo = () => {
@@ -19,7 +20,7 @@ const VideoPreview: React.FC<IVideo> = ({ id, name, link, preview, video }) => {
         <Link to={`/videos/${id}`} className="video" onMouseEnter={playVideo} onMouseLeave={pauseVideo}>
             <p className="video__title">{name}</p>
             <img src={preview} alt="preview image" className="video__preview" />
-            <video className="video__player" ref={playerRef} poster={preview} muted loop>
+            <video className="video__player" ref={playerRef} poster={preview} muted loop playsInline>
                 <source src={video} type="video/mp4" />
             </video>
             {/* <iframe className="video__player" src={link} frameBorder="0" allowFullScreen></iframe> */}
