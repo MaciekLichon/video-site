@@ -1,7 +1,40 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 body {
-  font-family: $ff-regular;
-  font-weight: $fw-regular;
-  color: $clr-text_dark;
+    font-family: $ff-regular;
+    font-weight: $fw-regular;
+    font-size: $fs-text;
+    color: $clr-text_dark;
+}
+
+// section title
+h2 {
+    font-size: $fs-h2;
+    text-transform: uppercase;
+    font-family: $ff-condensed;
+    font-weight: $fw-bold;
+}
+
+// award name
+h3 {
+    font-size: $fs-h3;
+    font-weight: $fw-bold;
+}
+
+// video preview title
+h4 {
+    font-size: $fs-h4;
+    font-weight: $fw-light;
+}
+
+// person name
+h5 {
+    font-size: $fs-h5;
+    font-weight: $fw-bold;
+}
+
+// location name, person title
+h6 {
+    font-size: $fs-h6;
+    font-weight: $fw-bold;
 }

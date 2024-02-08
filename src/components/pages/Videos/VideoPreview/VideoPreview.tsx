@@ -18,7 +18,7 @@ const VideoPreview: React.FC<IVideo> = ({ id, name, preview, video }) => {
 
     return (
         <Link to={`/videos/${id}`} className="video" onMouseEnter={playVideo} onMouseLeave={pauseVideo}>
-            <p className="video__title">{name}</p>
+            <h4 className="video__title">{name}</h4>
             <img src={preview} alt="preview image" className="video__preview" />
             <video className="video__player" ref={playerRef} poster={preview} muted loop playsInline>
                 <source src={video} type="video/mp4" />

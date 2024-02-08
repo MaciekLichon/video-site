@@ -1,7 +1,7 @@
 @import "../../../styles/variables.scss";
 
 .header {
-    background-color: $clr-200;
+    background-color: $clr-background;
     position: fixed;
     top: 0;
     width: 100%;
@@ -35,7 +35,8 @@
         transform: scaleY(0);
     }
 
-    &.closed, &.opening {
+    &.closed,
+    &.opening {
         .header__content {
             @media (min-width: $tablet) {
                 grid-template-columns: 1fr 1fr 1fr;
@@ -59,7 +60,7 @@
                 display: none;
                 transition: opacity 1000ms 300ms;
                 opacity: 0.2;
-                
+
                 @media (min-width: $tablet) {
                     display: block;
                 }
@@ -87,7 +88,7 @@
 
     &.open,
     &.closing {
-        background-color: $clr-200;
+        background-color: $clr-background;
 
         .header__content {
             min-height: 100vh;
@@ -114,8 +115,7 @@
             display: grid;
             row-gap: 2rem;
             // grid-template-columns: 250px;
-            
-            
+
             @media (min-width: $tablet) {
                 place-self: center;
                 grid-template-columns: 300px 300px;
@@ -243,7 +243,6 @@
         }
     }
 
-
     &__nav {
         z-index: 5;
         display: grid;
@@ -270,7 +269,7 @@
         }
 
         &-link {
-            font-family: $ff-nav;
+            font-family: $ff-condensed;
             text-transform: uppercase;
             color: $clr-text_dark;
             font-weight: $fw-bold;

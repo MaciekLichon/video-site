@@ -3,17 +3,18 @@
 .location {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 22px;
     width: 100%;
-    
+    font-size: $fs-contact-location;
+
     @media (min-width: 600px) {
-        max-width: 200px;
+        max-width: 400px;
     }
 
     &:not(:first-child) {
         padding-top: 2rem;
         border-top: 1px solid $clr-text_dark;
-        
+
         @media (min-width: 600px) {
             padding: 0;
             border: none;
@@ -21,6 +22,11 @@
     }
 
     &__name {
-        font-weight: $fw-bold;
+        font-family: $ff-condensed;
+        text-transform: uppercase;
+    }
+
+    &__address {
+        margin-top: 10px;
     }
 }

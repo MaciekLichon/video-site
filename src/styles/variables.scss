@@ -1,15 +1,75 @@
-$ff-nav: "Roboto Condensed", sans-serif;
-$ff-regular: "Lato", sans-serif;
-$ff-mono: "Inconsolata", monospace;
+$ff-condensed: "Roboto Condensed", sans-serif;
+$ff-regular: "Roboto", sans-serif;
 
+$fw-light: 300;
 $fw-regular: 400;
+$fw-medium: 500;
 $fw-bold: 700;
 $fw-black: 900;
 
-$clr-text_light: white;
-$clr-200: #F2F2F2;
+$fs-100: 16px;
+$fs-200: 20px;
+$fs-300: 22px;
+$fs-400: 23px;
+$fs-500: 24px;
+$fs-600: 26px;
+$fs-700: 28px;
+$fs-800: 30px;
+$fs-900: 100px;
+$fs-1000: 200px;
+
+$fs-h2: $fs-1000;
+$fs-h3: $fs-800;
+$fs-h4: $fs-700;
+$fs-h5: $fs-600;
+$fs-h6: $fs-400;
+
+$fs-text: $fs-600;
+$fs-nav-header: $fs-400;
+$fs-nav-hamburger: $fs-800;
+$fs-footer: $fs-200;
+$fs-home-location: $fs-100;
+$fs-contact-location: $fs-500;
+$fs-video-controls: $fs-300;
+$fs-person-details: $fs-200;
+
+// section title 200px - condensed; // h2
+// hamburger nav 30px - condensed; // a
+// person name 26px - condensed; // h5
+// visible nav 23px - condensed; // a
+// location name 23px - condensed; // h6
+
+// contact email 100px - normal; // a
+// award name 30px - normal; // h3
+// video preview title 28px - normal; // h4
+// section text 26px - normal; // p
+// award details 26px - normal; // p
+// location details 24px - normal; // p
+// person title 23px - normal; // h6
+// single video controls 22px - normal; // p
+// footer 20px - normal; // a-p
+// person details 20px - normal; // p
+// home locations 16px - normal; // p
+
+// condensed - 200, 30, 26, 23
+// normal - 100, 30, 28, 26, 24, 23, 22, 20, 16
+
+// section title, contact hello 200px - condensed; // h2
+// award name 30px - normal; // h3
+// video preview title 28px - normal; // h4
+// person name 26px - condensed; // h5
+// location name 23px - condensed; // h6
+// person title 23px - normal; // h6
+
+$clr-text_light: rgba(255, 255, 255, 1);
+$clr-text_medium: rgba(112, 112, 112, 1);
+$clr-text_dark: rgba(77, 77, 77, 1);
+
+$clr-background: rgba(242, 242, 242, 1);
+
 $clr-300: #e0e0e0;
-$clr-text_dark: black;
+
+//rgba(35, 31, 32, 1) - short logo
 
 $tablet: 768px;
 $desktop: 1024px;

@@ -3,7 +3,8 @@
 .about {
     &__content {
         display: grid;
-        row-gap: 1em;
+        row-gap: 20px;
+        column-gap: 24px;;
 
         @media (min-width: $tablet) {
           grid-template-columns: 1fr 1fr;
@@ -22,10 +23,5 @@
               }
           }
         }
-
-        @media (min-width: $desktop) {
-            gap: 0;
-        }
-
     }
 }

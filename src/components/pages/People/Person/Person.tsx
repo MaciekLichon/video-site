@@ -33,7 +33,7 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                 />
             </div>
             <div className="person__text">
-                <motion.p
+                <motion.h5
                     initial="hidden"
                     whileInView="visible"
                     variants={pVariants}
@@ -42,8 +42,8 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                     className="person__name"
                 >
                     {name}
-                </motion.p>
-                <motion.p
+                </motion.h5>
+                <motion.h6
                     initial="hidden"
                     whileInView="visible"
                     variants={pVariants}
@@ -52,7 +52,7 @@ const Person: React.FC<IPerson> = ({ image, name, title, description }) => {
                     className="person__title"
                 >
                     {title}
-                </motion.p>
+                </motion.h6>
                 <motion.p
                     initial="hidden"
                     whileInView="visible"

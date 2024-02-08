@@ -75,12 +75,6 @@ export const locationsData: ILocation[] = [
         email: "email@com.pl",
         address: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, modi.",
     },
-    {
-        location: "Catropolis Central",
-        phone: "123 456 789",
-        email: "email@com.pl",
-        address: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, modi.",
-    },
 ];
 
 import person1 from "../assets/images/cat-1.jpg";

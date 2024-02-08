@@ -6,7 +6,7 @@
 
         @media (min-width: $tablet) {
             grid-template-columns: 1fr 1fr;
-            column-gap: 100px;
+            column-gap: 160px;
         }
     }
 
@@ -16,14 +16,14 @@
         gap: 50px;
 
         @media (min-width: $tablet) {
-            gap: 100px;
+            gap: 250px;
         }
 
         &:nth-child(2) {
             margin-top: 50px;
 
             @media (min-width: $tablet) {
-                margin-top: 200px;
+                margin-top: 270px;
             }
         }
     }

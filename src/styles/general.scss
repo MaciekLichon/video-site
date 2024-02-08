@@ -21,7 +21,7 @@ button {
 // ----- LAYOUT -----
 
 body {
-    background-color: $clr-200;
+    background-color: $clr-background;
     min-height: 100svh;
 }
 
@@ -33,7 +33,7 @@ body {
 
 section {
     flex: 1;
-    margin-top: 100px;
+    margin-top: 180px;
 
     &.home,
     &.loading {
@@ -49,17 +49,13 @@ section {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1700px;
     margin-inline: auto;
-    padding-inline: 2rem;
+    padding-inline: 30px;
 }
 
 .container-big {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1920px;
     margin-inline: auto;
-
-    @media (min-width: $tablet) {
-        padding-inline: 2rem;
-    }
 }
