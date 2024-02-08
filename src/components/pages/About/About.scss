@@ -4,7 +4,8 @@
     &__content {
         display: grid;
         row-gap: 20px;
-        column-gap: 24px;;
+        column-gap: 24px;
+        line-height: 1.45;
 
         @media (min-width: $tablet) {
           grid-template-columns: 1fr 1fr;

@@ -26,6 +26,12 @@
         justify-self: end;
         z-index: $max-index;
 
+        // this part is important to keep toggle aligned,
+        // "global" alignment doesn't work because of layout shifts between open and closed nav
+        height: 30px;
+        display: flex;
+        align-items: center;
+
         @media (min-width: $tablet) {
             grid-column: 1;
             justify-self: start;
@@ -67,7 +73,11 @@
 
         &-list {
             display: flex;
-            gap: 300px;
+            gap: 100px;
+
+            @media (min-width: $desktop) {
+                gap: 300px;
+            }
         }
 
         &-item {

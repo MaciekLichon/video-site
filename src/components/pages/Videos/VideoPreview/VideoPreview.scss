@@ -5,9 +5,17 @@
     height: 100%;
     position: relative;
     aspect-ratio: 2/1;
-    padding: 40px 60px;
+    padding: 16px 32px;
     display: flex;
     align-items: flex-end;
+
+    @media (min-width: $desktop) {
+        padding: 24px 48px;
+    }
+
+    @media (min-width: $desktop_l) {
+        padding: 40px 60px;
+    }
 
     // don't allow hover on touch
     @media (hover: hover) {

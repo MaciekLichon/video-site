@@ -9,10 +9,17 @@ body {
 
 // section title
 h2 {
-    font-size: $fs-h2;
+    font-size: $fs-h2_s;
     text-transform: uppercase;
     font-family: $ff-condensed;
     font-weight: $fw-bold;
+
+    @media (min-width: $tablet) {
+        font-size: $fs-h2_m;
+    }
+    @media (min-width: $desktop) {
+        font-size: $fs-h2_l;
+    }
 }
 
 // award name
@@ -23,8 +30,16 @@ h3 {
 
 // video preview title
 h4 {
-    font-size: $fs-h4;
     font-weight: $fw-light;
+    font-size: $fs-h4_s;
+
+    @media (min-width: $desktop) {
+        font-size: $fs-h4_m;
+    }
+
+    @media (min-width: $desktop_l) {
+        font-size: $fs-h4_l;
+    }
 }
 
 // person name

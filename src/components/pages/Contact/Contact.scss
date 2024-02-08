@@ -3,25 +3,35 @@
 .contact {
     $custom-breakpoint: 600px;
 
-    &__message {
-
-    }
-
     &__email {
         color: $clr-text_dark;
-        font-size: $fs-900;
+        font-size: $fs-800;
         opacity: 0.4;
+
+        @media (min-width: $tablet) {
+            font-size: $fs-900;
+        }
+
+        @media (min-width: $desktop) {
+            font-size: $fs-1000;
+        }
     }
 
     &__locations {
-        margin-top: 90px;
+        margin-top: 60px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 150px;
+        gap: 40px;
 
         @media (min-width: $custom-breakpoint) {
+            gap: 70px;
+            margin-top: 90px;
             flex-direction: row;
+        }
+
+        @media (min-width: $desktop) {
+            gap: 150px;
         }
     }
 }

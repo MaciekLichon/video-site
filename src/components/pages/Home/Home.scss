@@ -55,7 +55,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 32px;
 
         @media (min-width: $tablet) {
             display: grid;
@@ -63,6 +63,11 @@
             align-items: center;
             grid-template-columns: auto 1fr auto;
             grid-column: 2;
+            column-gap: 80px;
+            row-gap: 60px;
+        }
+
+        @media (min-width: $desktop) {
             column-gap: 150px;
             row-gap: 100px;
         }
@@ -75,7 +80,7 @@
                 display: block;
             }
 
-            &[href="/videos"] {
+            &[href$="/videos"] {
                 display: block;
                 order: 3;
 
@@ -84,7 +89,7 @@
                 }
             }
 
-            &[href="/contact"] {
+            &[href$="/contact"] {
                 display: block;
                 order: 1;
 
@@ -122,8 +127,10 @@
         }
 
         &-locations {
+            $spacing: 8px;
+
             display: none;
-            gap: 0.5rem;
+            gap: $spacing;
             color: $clr-text_light;
             justify-content: center;
 
@@ -134,7 +141,7 @@
             span {
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
+                gap: $spacing;
                 font-size: $fs-home-location;
                 text-transform: uppercase;
             }
@@ -154,12 +161,10 @@
 
     &__socials {
         display: none;
-        padding-bottom: 2rem;
         flex-direction: column;
         align-items: center;
         justify-self: end;
         gap: 10px;
-        padding-bottom: 0;
 
         @media (min-width: $tablet) {
             display: flex;

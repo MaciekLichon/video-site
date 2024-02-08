@@ -6,24 +6,40 @@
 
         @media (min-width: $tablet) {
             grid-template-columns: 1fr 1fr;
+            column-gap: 80px;
+        }
+
+        @media (min-width: $desktop) {
             column-gap: 160px;
         }
     }
 
     &__column {
+        $spacing_s: 50px;
+        $spacing_m: 150px;
+        $spacing_l: 250px;
+
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: $spacing_s;
 
         @media (min-width: $tablet) {
-            gap: 250px;
+            gap: $spacing_m;
+        }
+
+        @media (min-width: $desktop) {
+            gap: $spacing_l;
         }
 
         &:nth-child(2) {
-            margin-top: 50px;
+            margin-top: $spacing_s;
 
             @media (min-width: $tablet) {
-                margin-top: 270px;
+                margin-top: $spacing_m;
+            }
+
+            @media (min-width: $desktop) {
+                margin-top: $spacing_l;
             }
         }
     }

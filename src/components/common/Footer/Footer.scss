@@ -4,14 +4,20 @@
     &__content {
         display: flex;
         align-items: center;
-        padding-top: 64px;
-        padding-bottom: 46px;
+        padding-top: 32px;
+        padding-bottom: 32px;
 
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 12px;
 
-        @media (min-width: $tablet) {
+        @media (min-width: $desktop) {
+            padding-top: 64px;
+            padding-bottom: 46px;
             flex-direction: row;
+            gap: 60px;
+        }
+        
+        @media (min-width: $desktop_l) {
             gap: 175px;
         }
     }
@@ -24,30 +30,36 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
-        font-size: $fs-footer;
-        
-        @media (min-width: $tablet) {
+        gap: 8px;
+        font-size: $fs-footer_s;
+
+        @media (min-width: $desktop) {
             flex-direction: row;
             gap: 45px;
+        }
+        
+        @media (min-width: $desktop_l) {
+            font-size: $fs-footer;
         }
     }
 
     &__year {
         display: none;
 
-        @media (min-width: $tablet) {
+        @media (min-width: $desktop) {
             display: block;
         }
     }
 
     &__locations {
+        $spacing: 8px;
+
         display: flex;
-        gap: 0.5rem;
+        gap: $spacing;
 
         span {
             display: flex;
-            gap: 0.5rem;
+            gap: $spacing;
             align-items: center;
             text-transform: uppercase;
 
@@ -63,14 +75,23 @@
     &__socials {
         display: flex;
         align-items: center;
-        gap: 60px;
-        
-        @media (min-width: $tablet) {
+        gap: 16px;
+
+        @media (min-width: $desktop) {
+            gap: 30px;
             margin-left: auto;
+        }
+        
+        @media (min-width: $desktop_l) {
+            gap: 60px;
         }
 
         &-link {
-            width: 26px;
+            width: 20px;
+
+            @media (min-width: $desktop) {
+                width: 26px;
+            }
         }
     }
 }
@@ -89,7 +110,7 @@
     z-index: 100;
     animation: showFooter 1000ms 200ms;
     animation-fill-mode: backwards;
-    
+
     @media (max-width: calc($tablet - 1px)) and (max-height: 600px) {
         display: none;
     }
