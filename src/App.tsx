@@ -23,23 +23,21 @@ const App: React.FC = () => {
     return (
         <>
             {/* {(isLoading || !previewFinished) && <Loading setPreviewFinished={setPreviewFinished} />} */}
-            <>
-                <NewHeader />
-                <AnimatePresence mode="wait">
-                    <Routes location={location} key={location.pathname}>
-                        {/* <Route path="" element={<Home setIsLoading={setIsLoading} />} /> */}
-                        <Route path="" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/awards" element={<Awards />} />
-                        <Route path="/people" element={<People />} />
-                        <Route path="/videos" element={<Videos />} />
-                        <Route path="/videos/:id" element={<VideoPage />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </AnimatePresence>
-                <Footer />
-            </>
+            <NewHeader />
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    {/* <Route path="" element={<Home setIsLoading={setIsLoading} />} /> */}
+                    <Route path="" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/awards" element={<Awards />} />
+                    <Route path="/people" element={<People />} />
+                    <Route path="/videos" element={<Videos />} />
+                    <Route path="/videos/:id" element={<VideoPage />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </AnimatePresence>
+            <Footer />
         </>
     );
 };

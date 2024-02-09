@@ -7,10 +7,12 @@ import "./styles/normalize.scss";
 import "./styles/general.scss";
 import "./styles/typography.scss";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
-        <BrowserRouter basename={"/video-site/"}>
-            <App />
-        </BrowserRouter>
-    </React.StrictMode>
-);
+setTimeout(() => {
+    ReactDOM.createRoot(document.getElementById("root")!).render(
+        <React.StrictMode>
+            <BrowserRouter basename={"/video-site/"}>
+                <App />
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+}, 4000)
