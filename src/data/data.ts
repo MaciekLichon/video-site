@@ -55,6 +55,66 @@ export const awardsData: IAward[] = [
     },
 ];
 
+export interface INewAward {
+    id: number,
+    award: string;
+    event: string;
+    commentOne: string;
+    commentTwo: string;
+    video: string;
+}
+
+export const newAwardsData: INewAward[] = [
+    {
+        id: 1,
+        award: "Gold",
+        event: "Cannes Lions",
+        commentOne: 'Etisalat KSA',
+        commentTwo: 'Commercial / Art direction',
+        video: videoPreview1,
+    },
+    {
+        id: 2,
+        award: "Silver",
+        event: "Dubai Lynx",
+        commentOne: 'Etisalat KSA',
+        commentTwo: 'Commercial / Art direction',
+        video: videoPreview2,
+    },
+    {
+        id: 3,
+        award: "Bronze",
+        event: "D&AD",
+        commentOne: 'Etisalat KSA',
+        commentTwo: 'Commercial / Art direction',
+        video: videoPreview3,
+    },
+    {
+        id: 4,
+        award: "Gold",
+        event: "Cannes Lions",
+        commentOne: 'Etisalat KSA',
+        commentTwo: 'Commercial / Art direction',
+        video: videoPreview4,
+    },
+    {
+        id: 5,
+        award: "Silver",
+        event: "Dubai Lynx",
+        commentOne: 'Etisalat KSA',
+        commentTwo: 'Commercial / Art direction',
+        video: videoPreview5,
+    },
+    {
+        id: 6,
+        award: "Bronze",
+        event: "D&AD",
+        commentOne: 'Etisalat KSA',
+        commentTwo: 'Commercial / Art direction',
+        video: videoPreview6,
+    }
+]
+
 export interface ILocation {
     location: string;
     phone: string;

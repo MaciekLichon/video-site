@@ -1,0 +1,67 @@
+@import "../../../../styles/variables.scss";
+
+.award {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    &__circle {
+        width: 200px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        position: relative;
+        // overflow: hidden;
+        transition: background-color 300ms;
+
+        &.gold {
+            background-color: rgba(217, 183, 107, 1);
+        }
+
+        &.silver {
+            background-color: rgba(219, 219, 219, 1);
+        }
+
+        &.bronze {
+            background-color: white;
+        }
+        
+        // don't allow hover on touch
+        @media (hover: hover) {
+            &:hover {
+                background-color: rgba(242, 242, 242, 0.75);
+            }
+        }
+
+        &-video {
+            position: absolute;
+            border-radius: 50%;
+            width: 99%;
+            height: 99%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            z-index: -1;
+        }
+    }
+
+    &__trophy {
+        margin-top: 30px;
+    }
+
+    &__event {
+        font-size: $fs-h3;
+    }
+
+    &__title, &__event {
+        font-size: $fs-600;
+        margin-top: 9px;
+    }
+
+    &__title {
+        font-weight: $fw-bold;
+    }
+
+}

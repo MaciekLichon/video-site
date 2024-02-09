@@ -13,10 +13,6 @@ import logo from "../../../assets/icons/logo.svg";
 
 import bgVideo from "../../../assets/videos/video-bg.mp4";
 
-// interface IProps {
-//     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
 const Home: React.FC = () => {
     return (
         <motion.section
@@ -27,15 +23,6 @@ const Home: React.FC = () => {
             transition={{ duration: 0.3, ease: "linear" }}
         >
             <div className="home__video">
-                {/* <iframe
-                    className="home__player"
-                    src="https://player.vimeo.com/video/373604133?background=1"
-                    frameBorder="0"
-                    allowFullScreen
-                    onLoad={() => {
-                        setIsLoading(false);
-                    }}
-                ></iframe> */}
                 <video className="home__player" autoPlay muted loop playsInline>
                     <source src={bgVideo} type="video/mp4" />
                 </video>
