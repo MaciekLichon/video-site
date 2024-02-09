@@ -134,7 +134,6 @@
             &-icon {
                 display: none;
                 width: 16px;
-                transform: rotate(-45deg);
             }
         }
     }
@@ -170,11 +169,7 @@
 
         .header__content {
             height: 100%;
-            grid-template-rows: 4rem 1fr 4rem;
-
-            @media (min-width: $tablet) {
-                grid-template-rows: 75px 1fr 75px;
-            }
+            grid-template-rows: 75px 1fr 75px;
         }
 
         .header__toggle-button span {

@@ -4,13 +4,13 @@
     display: grid;
 
     @media (min-width: $desktop) {
-        grid-template-columns: 180px 1fr;
-        gap: 50px;
+        grid-template-columns: 200px 1fr;
+        gap: 40px;
     }
 
     @media (min-width: $desktop_l) {
-        grid-template-columns: 250px 1fr;
-        gap: 170px;
+        grid-template-columns: 270px 1fr;
+        gap: 150px;
     }
 
     &__title-text {

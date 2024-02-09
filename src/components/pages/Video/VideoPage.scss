@@ -101,7 +101,7 @@
     }
 
     &__controls {
-        padding-block: 1rem;
+        padding-block: 28px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -117,10 +117,10 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 16px;
 
             @media (min-width: $tablet) {
-                margin-right: 1rem;
+                margin-right: 16px;
             }
 
             &::after {
@@ -140,13 +140,14 @@
             flex: 1;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 16px;
+            font-size: 14px;
 
             &__timeline {
                 height: 2px;
                 width: 100%;
                 min-width: 120px;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(77, 77, 77, 0.5);
                 border-radius: 2px;
                 position: relative;
                 cursor: pointer;
@@ -180,8 +181,8 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 8px;
+            margin-top: 16px;
 
             @media (min-width: $tablet) {
                 gap: 0;
@@ -202,20 +203,25 @@
                 }
             }
 
-            &__group {
+            &__properties, &__video-switch {
                 display: flex;
-                gap: 0.5rem;
+            }
 
-                @media (min-width: $tablet) {
-                    margin-left: 3rem;
-                }
+            &__properties {
+                margin-left: 60px;
+                gap: 24px;
+            }
+
+            &__video-switch {
+                margin-left: 92px;
+                gap: 54px;
             }
         }
     }
 
     &__button {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
 
         img {
             width: 100%;
@@ -228,10 +234,9 @@
         }
 
         &_play {
-            margin-right: 0.5rem;
-            @media (min-width: $tablet) {
-                margin-right: 1rem;
-            }
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
         }
 
         &_minimize {

@@ -6,13 +6,13 @@ import { useParams } from "react-router";
 import { videosData } from "../../../data/data";
 
 import iconPlay from "../../../assets/icons/player-play.svg";
-import iconPause from "../../../assets/icons/player-pause.svg";
-import iconMaximize from "../../../assets/icons/player-maximize.svg";
+import iconPause from "../../../assets/icons-new/controls-pause.svg";
+import iconMaximize from "../../../assets/icons-new/controls-maximize.svg";
 import iconMinimize from "../../../assets/icons/player-minimize.svg";
-import iconMute from "../../../assets/icons/player-mute.svg";
+import iconMute from "../../../assets/icons-new/controls-mute.svg";
 import iconSound from "../../../assets/icons/player-sound.svg";
-import iconNext from "../../../assets/icons/player-next.svg";
-import iconPrevious from "../../../assets/icons/player-previous.svg";
+import iconNext from "../../../assets/icons-new/controls-angle-double.svg";
+import iconPrevious from "../../../assets/icons-new/controls-angle-single.svg";
 import TransitionedPage from "../../common/TransitionedPage/TransitionedPage";
 import { Link } from "react-router-dom";
 
@@ -163,25 +163,25 @@ const VideoPage: React.FC = () => {
                             </div>
                         </div>
                         <div className="video-page__controls-buttons__category">
-                            <div className="video-page__controls-buttons__group">
+                            <div className="video-page__controls-buttons__properties">
                                 <button
-                                    className="video-page__button video-page__button_small button-volume"
+                                    className="video-page__button button-volume"
                                     onClick={changeVolume}
                                 >
                                     <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
                                 </button>
                                 <button
-                                    className="video-page__button video-page__button_small button-size"
+                                    className="video-page__button button-size"
                                     onClick={changeSize}
                                 >
                                     <img src={iconMaximize} alt="icon maximize" />
                                 </button>
                             </div>
-                            <div className="video-page__controls-buttons__group">
-                                <button className="video-page__button video-page__button_small button-previous">
+                            <div className="video-page__controls-buttons__video-switch">
+                                <button className="video-page__button button-previous">
                                     <img src={iconPrevious} alt="icon previous" />
                                 </button>
-                                <button className="video-page__button video-page__button_small button-next">
+                                <button className="video-page__button button-next">
                                     <img src={iconNext} alt="icon next" />
                                 </button>
                             </div>
