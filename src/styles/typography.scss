@@ -20,6 +20,9 @@ h2 {
     @media (min-width: $desktop) {
         font-size: $fs-h2_l;
     }
+    @media (min-width: $desktop_l) {
+        font-size: $fs-h2_xl;
+    }
 }
 
 // award name

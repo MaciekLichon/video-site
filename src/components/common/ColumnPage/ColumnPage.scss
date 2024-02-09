@@ -4,14 +4,19 @@
     display: grid;
 
     @media (min-width: $desktop) {
+        grid-template-columns: 180px 1fr;
+        gap: 50px;
+    }
+
+    @media (min-width: $desktop_l) {
         grid-template-columns: 250px 1fr;
         gap: 170px;
     }
 
     &__title-text {
         // font-size: 100px;
-        text-transform: uppercase;
-        font-family: $ff-condensed;
+        // text-transform: uppercase;
+        // font-family: $ff-condensed;
         // font-weight: $fw-bold;
         position: sticky;
         top: 100px;
@@ -23,7 +28,10 @@
 
     &__content {
         @media (min-width: $desktop) {
-            margin-top: 2em;
+            margin-top: 30px;
+        }
+        @media (min-width: $desktop_l) {
+            margin-top: 40px;
         }
     }
 }

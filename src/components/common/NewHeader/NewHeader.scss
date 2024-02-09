@@ -74,8 +74,16 @@
         &-list {
             display: flex;
             gap: 100px;
+            
+            // in case toggle btn is heigher than text
+            height: 100%;
+            align-items: center;
 
             @media (min-width: $desktop) {
+                gap: 170px;
+            }
+
+            @media (min-width: $desktop_l) {
                 gap: 300px;
             }
         }
@@ -190,8 +198,15 @@
             &-list {
                 display: grid;
                 gap: $spacing;
+                height: auto;
+                align-items: unset;
 
                 @media (min-width: $tablet) {
+                    grid-template-columns: 300px 300px;
+                    column-gap: 60px;
+                }
+
+                @media (min-width: $desktop_m) {
                     grid-template-columns: 400px 400px;
                     column-gap: 150px;
                 }
