@@ -74,7 +74,7 @@
         &-list {
             display: flex;
             gap: 100px;
-            
+
             // in case toggle btn is heigher than text
             height: 100%;
             align-items: center;
@@ -163,6 +163,8 @@
     // (a lot of layout changes)
     &.open,
     &.closing {
+        height: 100%;
+        overflow-y: scroll;
         display: grid;
         min-height: 100vh;
         background-color: $clr-background;
@@ -170,6 +172,10 @@
         .header__content {
             height: 100%;
             grid-template-rows: 75px 1fr 75px;
+
+            // @media (max-width: $width-to-show-footer) and (max-height: $height-to-show-footer) {
+            //     grid-template-rows: 75px 1fr;
+            // }
         }
 
         .header__toggle-button span {

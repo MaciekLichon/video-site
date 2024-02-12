@@ -111,7 +111,7 @@
     animation: showFooter 1000ms 200ms;
     animation-fill-mode: backwards;
 
-    @media (max-width: calc($tablet - 1px)) and (max-height: 760px) {
+    @media (max-width: $width-to-show-footer) and (max-height: $height-to-show-footer) {
         display: none;
     }
 

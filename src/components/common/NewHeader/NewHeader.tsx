@@ -15,11 +15,13 @@ const NewHeader: React.FC = () => {
             setStatus("opening");
             setTimeout(() => {
                 setStatus("open");
+                document.body.classList.add("no-scroll");
             }, 300);
         } else if (status === "open") {
             setStatus("closing");
             setTimeout(() => {
                 setStatus("closed");
+                document.body.classList.remove("no-scroll");
             }, 300);
         }
     };
@@ -29,6 +31,7 @@ const NewHeader: React.FC = () => {
             setStatus("closing");
             setTimeout(() => {
                 setStatus("closed");
+                document.body.classList.remove("no-scroll");
             }, 300);
         }
     };
