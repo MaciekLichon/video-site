@@ -13,6 +13,7 @@ import iconMute from "../../../assets/icons-new/controls-mute.svg";
 import iconSound from "../../../assets/icons/player-sound.svg";
 import iconNext from "../../../assets/icons-new/controls-angle-double.svg";
 import iconPrevious from "../../../assets/icons-new/controls-angle-single.svg";
+import iconOverlayControl from "../../../assets/icons-new/controls-previous.svg";
 import TransitionedPage from "../../common/TransitionedPage/TransitionedPage";
 import { Link } from "react-router-dom";
 
@@ -123,13 +124,17 @@ const VideoPage: React.FC = () => {
                                 to={`/videos/${neighbourVideos.prev}`}
                                 className="video-page__video-overlay__item video-page__video-overlay__item_left"
                             >
-                                <div>PREVIOUS</div>
+                                <div className="video-page__video-overlay__item-side">
+                                    <img src={iconOverlayControl} alt="icon previous video" />
+                                </div>
                             </Link>
                             <Link
                                 to={`/videos/${neighbourVideos.next}`}
                                 className="video-page__video-overlay__item video-page__video-overlay__item_right"
                             >
-                                <div>NEXT</div>
+                                <div className="video-page__video-overlay__item-side">
+                                    <img src={iconOverlayControl} alt="icon next video" />
+                                </div>
                             </Link>
                         </div>
                         <button
@@ -164,26 +169,23 @@ const VideoPage: React.FC = () => {
                         </div>
                         <div className="video-page__controls-buttons__category">
                             <div className="video-page__controls-buttons__properties">
-                                <button
-                                    className="video-page__button button-volume"
-                                    onClick={changeVolume}
-                                >
+                                <button className="video-page__button button-volume" onClick={changeVolume}>
                                     <img src={isMuted ? iconMute : iconSound} alt="icon volume" />
                                 </button>
-                                <button
-                                    className="video-page__button button-size"
-                                    onClick={changeSize}
-                                >
+                                <button className="video-page__button button-size" onClick={changeSize}>
                                     <img src={iconMaximize} alt="icon maximize" />
                                 </button>
                             </div>
                             <div className="video-page__controls-buttons__video-switch">
-                                <button className="video-page__button button-previous">
+                                <Link
+                                    to={`/videos/${neighbourVideos.next}`}
+                                    className="video-page__button button-previous"
+                                >
                                     <img src={iconPrevious} alt="icon previous" />
-                                </button>
-                                <button className="video-page__button button-next">
+                                </Link>
+                                <Link to={`/videos/${neighbourVideos.next}`} className="video-page__button button-next">
                                     <img src={iconNext} alt="icon next" />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

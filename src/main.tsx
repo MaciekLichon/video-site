@@ -15,4 +15,6 @@ setTimeout(() => {
             </BrowserRouter>
         </React.StrictMode>
     );
-}, 4000)
+}, 6000)
+
+// The whole CSS animations lasts 6 sedonds
