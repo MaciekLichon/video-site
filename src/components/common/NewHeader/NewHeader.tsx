@@ -2,6 +2,7 @@ import "./NewHeader.scss";
 
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 
 import logoDark from "../../../assets/icons/logo-dark.svg";
 import { navLinksData } from "../../../data/data";
@@ -9,6 +10,13 @@ import { navLinksData } from "../../../data/data";
 const NewHeader: React.FC = () => {
     const [status, setStatus] = useState<"closed" | "opening" | "closing" | "open">("closed");
     const location = useLocation();
+
+    const [isScrolled, setIsScrolled] = useState(false);
+    const { scrollY } = useScroll();
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 10);
+    });
+    
 
     const toggleMenu = () => {
         if (status === "closed") {
@@ -37,7 +45,7 @@ const NewHeader: React.FC = () => {
     };
 
     return (
-        <header className={`header ${location.pathname === "/" ? "onHome" : ""} ${status}`}>
+        <header className={`header ${location.pathname === "/" ? "onHome" : ""} ${status} ${isScrolled ? 'scrolled' : ''}`}>
             <div className="header__content container">
                 <div className="header__toggle">
                     <button className="header__toggle-button" onClick={toggleMenu}>

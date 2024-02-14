@@ -7,12 +7,16 @@
     text-align: center;
     
     &__circle {
-        width: 200px;
+        width: 150px;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
         position: relative;
         // overflow: hidden;
         transition: background-color 300ms;
+        
+        @media (min-width: $desktop) {
+            width: 200px;
+        }
 
         &.gold {
             background-color: rgba(217, 183, 107, 1);
@@ -48,20 +52,72 @@
     }
 
     &__trophy {
-        margin-top: 30px;
+        margin-top: 10px;
+
+        @media (min-width: $tablet) {
+            margin-top: 30px;
+        }
     }
 
     &__event {
-        font-size: $fs-h3;
+        font-size: $fs-300;
+
+        @media (min-width: $tablet) {
+            font-size: $fs-h3;
+        }
     }
 
     &__title, &__event {
-        font-size: $fs-600;
-        margin-top: 9px;
+        margin-top: 3px;
+
+        @media (min-width: $tablet) {
+            margin-top: 9px;
+        }
     }
 
     &__title {
         font-weight: $fw-bold;
+        font-size: $fs-300;
+
+        @media (min-width: $tablet) {
+            font-size: $fs-600;
+        }
     }
 
+    &__comment {
+        font-size: $fs-200;
+
+        @media (min-width: $tablet) {
+            font-size: auto;
+        }
+    }
+}
+
+// steps layout
+.award {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+
+        @media (min-width: $tablet) {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    @media (min-width: $tablet) {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    &__circle, &__details {
+        flex: 1;
+
+        @media (min-width: $tablet) {
+            flex: unset;
+        }
+    }
 }

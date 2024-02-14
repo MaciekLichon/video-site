@@ -1,18 +1,35 @@
 @import "../../../styles/variables.scss";
 
+// .awards {
+//     &__content {
+//         display: grid;
+//         justify-items: center;
+//         grid-template-columns: 1fr 1fr;
+//         column-gap: 20px;
+//         row-gap: 30px;
+
+//         @media (min-width: $tablet) {
+//         }
+
+//         @media (min-width: $tablet) {
+//             grid-template-columns: 1fr 1fr 1fr;
+//             gap: 50px;
+//         }
+//     }
+// }
+
 .awards {
     &__content {
         display: grid;
         justify-items: center;
-        gap: 50px;
-
+        gap: 30px;
+        
         @media (min-width: $tablet) {
-            grid-template-columns: 1fr 1fr;
         }
 
-        @media (min-width: $desktop) {
+        @media (min-width: $tablet) {
             grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
         }
     }
 }
-

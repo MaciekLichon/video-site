@@ -4,8 +4,8 @@ import { AnimatePresence } from "framer-motion";
 
 // import Loading from "./components/pages/Loading/Loading";
 import About from "./components/pages/About/About";
-import Awards from "./components/pages/Awards/Awards";
-// import NewAwards from "./components/pages/AwardsNew/NewAwards";
+// import Awards from "./components/pages/Awards/Awards";
+import NewAwards from "./components/pages/AwardsNew/NewAwards";
 import Home from "./components/pages/Home/Home";
 import NotFound from "./components/pages/NotFound/NotFound";
 import People from "./components/pages/People/People";
@@ -16,7 +16,6 @@ import VideoPage from "./components/pages/Video/VideoPage";
 import NewHeader from "./components/common/NewHeader/NewHeader";
 
 const App: React.FC = () => {
-
     const location = useLocation();
     return (
         <>
@@ -25,7 +24,7 @@ const App: React.FC = () => {
                 <Routes location={location} key={location.pathname}>
                     <Route path="" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/awards" element={<Awards />} />
+                    <Route path="/awards" element={<NewAwards />} />
                     <Route path="/people" element={<People />} />
                     <Route path="/videos" element={<Videos />} />
                     <Route path="/videos/:id" element={<VideoPage />} />

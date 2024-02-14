@@ -33,7 +33,15 @@ body {
 
 section {
     flex: 1;
-    margin-top: 180px;
+    margin-top: 90px;
+    
+    @media (min-width: $tablet) {
+        margin-top: 100px;
+    }
+
+    @media (min-width: $desktop) {
+        margin-top: 120px;
+    }
 
     &.home,
     &.loading {

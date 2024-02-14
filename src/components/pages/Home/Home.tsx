@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import iconCalendar from "../../../assets/icons/icon-contact.svg";
+import iconContent from "../../../assets/icons-new/nav-content.svg";
 import iconInfo from "../../../assets/icons-new/nav-info.svg";
 import iconPeople from "../../../assets/icons-new/nav-people.svg";
 import iconTrophy from "../../../assets/icons-new/nav-awards.svg";
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
                         <span>Meowtastic</span>
                     </p>
                     <Link to="/contact" className="home__nav-link">
-                        <img src={iconCalendar} alt="calendar icon" className="home__nav-icon" />
+                        <img src={iconContent} alt="content icon" className="home__nav-icon" />
                     </Link>
                     <img src={logo} alt="logo" className="home__nav-logo" />
                     <Link to="/about" className="home__nav-link">

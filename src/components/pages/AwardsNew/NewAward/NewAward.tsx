@@ -22,10 +22,12 @@ const NewAward: React.FC<INewAward> = ({award, event, commentOne, commentTwo, vi
                     <source src={video} type="video/mp4" />
                 </video>
             </div>
-            <h3 className="award__trophy">{award}</h3>
-            <p className="award__event">{event}</p>
-            <p className="award__title">{commentOne}</p>
-            <p className="award__comment">{commentTwo}</p>
+            <div className="award__details">
+                <h3 className="award__trophy">{award}</h3>
+                <p className="award__event">{event}</p>
+                <p className="award__title">{commentOne}</p>
+                <p className="award__comment">{commentTwo}</p>
+            </div>
         </div>
     );
 };
