@@ -12,7 +12,8 @@ import People from "./components/pages/People/People";
 import Videos from "./components/pages/Videos/Videos";
 import Contact from "./components/pages/Contact/Contact";
 import Footer from "./components/common/Footer/Footer";
-import VideoPage from "./components/pages/Video/VideoPage";
+// import VideoPage from "./components/pages/Video/VideoPage";
+import NewVideo from "./components/pages/VideoNew/NewVideo";
 import NewHeader from "./components/common/NewHeader/NewHeader";
 
 const App: React.FC = () => {
@@ -27,7 +28,7 @@ const App: React.FC = () => {
                     <Route path="/awards" element={<NewAwards />} />
                     <Route path="/people" element={<People />} />
                     <Route path="/videos" element={<Videos />} />
-                    <Route path="/videos/:id" element={<VideoPage />} />
+                    <Route path="/videos/:id" element={<NewVideo />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

@@ -2,6 +2,7 @@ import "./VideoPage.scss";
 
 import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 import { videosData } from "../../../data/data";
 
@@ -15,7 +16,6 @@ import iconNext from "../../../assets/icons-new/controls-angle-double.svg";
 import iconPrevious from "../../../assets/icons-new/controls-angle-single.svg";
 import iconOverlayControl from "../../../assets/icons-new/controls-previous.svg";
 import TransitionedPage from "../../common/TransitionedPage/TransitionedPage";
-import { Link } from "react-router-dom";
 
 const VideoPage: React.FC = () => {
     const { id } = useParams();
@@ -103,46 +103,48 @@ const VideoPage: React.FC = () => {
     return (
         <TransitionedPage>
             <section className="video-page">
-                <div className="container-big">
-                    <div className={`video-page__player ${isFullScreen ? "video-page__player_fullscreen" : ""}`}>
-                        <video
-                            ref={videoRef}
-                            className="video-page__video"
-                            // controls
-                            playsInline // added to prevent default mobile players from opening
-                            muted={isMuted}
-                            // onClick={changePlayState} // this is going to work properly once 'controls' is removed
-                            onLoadedData={(e) => setDuration(e.currentTarget.duration)}
-                            onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-                            onEnded={() => setIsPlaying(false)}
-                        >
-                            <source src={`${videoDetails?.video}#t=0.01`} type="video/mp4" />
-                        </video>
-                        {/* onClick={changePlayState} */}
-                        <div className="video-page__video-overlay">
-                            <Link
-                                to={`/videos/${neighbourVideos.prev}`}
-                                className="video-page__video-overlay__item video-page__video-overlay__item_left"
+                <div className="video-page__screen">
+                    <div className="container-big">
+                        <div className={`video-page__player ${isFullScreen ? "video-page__player_fullscreen" : ""}`}>
+                            <video
+                                ref={videoRef}
+                                className="video-page__video"
+                                // controls
+                                playsInline // added to prevent default mobile players from opening
+                                muted={isMuted}
+                                // onClick={changePlayState} // this is going to work properly once 'controls' is removed
+                                onLoadedData={(e) => setDuration(e.currentTarget.duration)}
+                                onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                                onEnded={() => setIsPlaying(false)}
                             >
-                                <div className="video-page__video-overlay__item-side">
-                                    <img src={iconOverlayControl} alt="icon previous video" />
-                                </div>
-                            </Link>
-                            <Link
-                                to={`/videos/${neighbourVideos.next}`}
-                                className="video-page__video-overlay__item video-page__video-overlay__item_right"
+                                <source src={`${videoDetails?.video}#t=0.01`} type="video/mp4" />
+                            </video>
+                            {/* onClick={changePlayState} */}
+                            <div className="video-page__video-overlay">
+                                <Link
+                                    to={`/videos/${neighbourVideos.prev}`}
+                                    className="video-page__video-overlay__item video-page__video-overlay__item_left"
+                                >
+                                    <div className="video-page__video-overlay__item-side">
+                                        <img src={iconOverlayControl} alt="icon previous video" />
+                                    </div>
+                                </Link>
+                                <Link
+                                    to={`/videos/${neighbourVideos.next}`}
+                                    className="video-page__video-overlay__item video-page__video-overlay__item_right"
+                                >
+                                    <div className="video-page__video-overlay__item-side">
+                                        <img src={iconOverlayControl} alt="icon next video" />
+                                    </div>
+                                </Link>
+                            </div>
+                            <button
+                                className="video-page__button video-page__button_small video-page__button_minimize"
+                                onClick={changeSize}
                             >
-                                <div className="video-page__video-overlay__item-side">
-                                    <img src={iconOverlayControl} alt="icon next video" />
-                                </div>
-                            </Link>
+                                <img src={iconMinimize} alt="icon minimize" />
+                            </button>
                         </div>
-                        <button
-                            className="video-page__button video-page__button_small video-page__button_minimize"
-                            onClick={changeSize}
-                        >
-                            <img src={iconMinimize} alt="icon minimize" />
-                        </button>
                     </div>
                 </div>
                 <div className="video-page__controls container">
