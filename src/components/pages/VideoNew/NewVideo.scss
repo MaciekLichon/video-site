@@ -3,8 +3,8 @@
 .vid {
     $custom-breakpoint: calc($tablet - 1px);
 
-    // --- VERTICAL MEDIA START ---
-    @media (max-width: $custom-breakpoint) and (orientation: portrait) {
+    // --- GENERAL MOBILE START ---
+    @media (max-width: $custom-breakpoint) {
         margin-top: 0;
         position: fixed;
         top: 0;
@@ -15,12 +15,7 @@
         background-color: black;
 
         &__screen {
-            width: 100vh;
-            height: 100vw;
             position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(90deg);
             display: flex;
             align-items: center;
 
@@ -33,8 +28,15 @@
                 align-items: center;
 
                 &__side {
-                    padding: 30px;
-                    opacity: 0.3;
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    place-items: center;
+
+                    svg {
+                        width: 20px;
+                        opacity: 0.3;
+                    }
 
                     path {
                         fill: $clr-text_light;
@@ -45,82 +47,114 @@
 
         &__controls {
             position: absolute;
+            color: $clr-text_light;
+            padding-block: 16px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+
+            &-content {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+
+            &-name {
+                display: none;
+            }
+
+            &-duration {
+                flex: 1;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                &__time {
+                    display: none;
+                }
+            }
+
+            &-button {
+                width: 16px;
+                height: 16px;
+
+                path {
+                    fill: $clr-text_light;
+                }
+
+                &_window {
+                    display: none;
+                }
+            }
+        }
+    }
+    // --- GENERAL MOBILE END ---
+
+    // --- VERTICAL MOBILE START ---
+    @media (max-width: $custom-breakpoint) and (orientation: portrait) {
+        &__screen {
+            width: 100vh;
+            height: 100vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        &__controls {
             top: 50%;
             left: 20%;
             transform: translate(-50%, -50%) rotate(90deg);
             width: 60vh;
-            color: $clr-text_light;
-            padding-block: 16px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-
-            &-content {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-            }
-
-            &-name {
-                display: none;
-            }
-
-            &-duration {
-                flex: 1;
-                font-size: 14px;
-                display: flex;
-                align-items: center;
-                gap: 16px;
-
-                &__time {
-                    display: none;
-                }
-            }
-
-            &-button {
-                width: 16px;
-                height: 16px;
-
-                path {
-                    fill: $clr-text_light;
-                }
-
-                &_window {
-                    display: none;
-                }
-            }
         }
     }
-    // --- VERTICAL MEDIA END ---
+    // --- VERTICAL MOBILE END ---
 
-    // --- HORIZONTAL MEDIA START ---
+    // --- HORIZONTAL MOBILE START ---
     @media (max-width: $custom-breakpoint) and (orientation: landscape) {
-        margin-top: 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10000;
-        background-color: black;
-
         &__screen {
             width: 100%;
             height: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
+        }
+
+        &__controls {
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60vw;
+        }
+    }
+    // --- HORIZONTAL MOBILE END ---
+
+    // --- WIDE START ---
+    @media (min-width: $tablet) {
+        &__screen {
+            &-content {
+                position: relative;
+            }
+
+            &-video {
+                width: 100%;
+                max-height: 820px;
+                object-fit: cover;
+            }
 
             &-overlay {
                 position: absolute;
                 inset: 0;
                 display: grid;
-                grid-template-columns: 80px 1fr 80px;
+                grid-template-columns: 250px 1fr 250px;
                 justify-items: center;
                 align-items: center;
 
                 &__side {
-                    padding: 30px;
-                    opacity: 0.3;
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    place-items: center;
+                    
+                    svg {
+                        width: 40px;
+                    }
 
                     path {
                         fill: $clr-text_light;
@@ -130,24 +164,24 @@
         }
 
         &__controls {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60vw;
-            color: $clr-text_light;
-            padding-block: 16px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-
             &-content {
                 display: flex;
                 align-items: center;
-                gap: 16px;
+                padding-block: 28px;
             }
 
             &-name {
-                display: none;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-right: 16px;
+
+                &::after {
+                    content: '';
+                    width: 1px;
+                    height: 74px;
+                    background-color: $clr-text_medium;
+                }
             }
 
             &-duration {
@@ -155,38 +189,48 @@
                 font-size: 14px;
                 display: flex;
                 align-items: center;
-                gap: 16px;
-
-                &__time {
-                    display: none;
-                }
+                gap: 24px;
             }
 
             &-button {
-                width: 16px;
-                height: 16px;
+                width: 20px;
+                height: 20px;
 
-                path {
-                    fill: $clr-text_light;
+                &_play {
+                    margin-right: 16px;
+                    width: 40px;
+                    height: 40px;
+                }
+
+                &_sound {
+                    margin-left: 54px;
                 }
 
                 &_window {
-                    display: none;
+                    margin-left: 24px;
+                }
+
+                &_previous {
+                    margin-left: 92px;
+                }
+
+                &_next {
+                    margin-left: 54px;
+                }
+
+                path {
+                    fill: $clr-text_dark;
                 }
             }
         }
     }
-    // --- HORIZONTAL MEDIA END ---
+    // --- WIDE END ---
 
     &__screen {
         &-overlay {
             &__side {
                 &:nth-of-type(2) {
                     transform: rotate(180deg);
-                }
-
-                svg {
-                    width: 100%;
                 }
             }
         }
@@ -205,6 +249,11 @@
                 position: relative;
                 cursor: pointer;
 
+                @media (min-width: $tablet) {
+                    background-color: rgba(0, 0, 0, 0.5);
+                    min-width: 250px;
+                }
+
                 &-thumb {
                     position: absolute;
                     left: 0;
@@ -212,6 +261,10 @@
                     height: 100%;
                     background-color: $clr-text_light;
                     transition: width 250ms linear; // debatable
+
+                    @media (min-width: $tablet) {
+                        background-color: $clr-text_dark;
+                    }
 
                     &::after {
                         content: "";
@@ -224,6 +277,12 @@
                         right: -6px;
                         top: 50%;
                         transform: translateY(-50%);
+
+                        @media (min-width: $tablet) {
+                            width: 18px;
+                            right: -9px;
+                            background-color: $clr-text_dark;
+                        }
                     }
                 }
             }
