@@ -27,6 +27,11 @@
                 justify-items: center;
                 align-items: center;
 
+                &__middle {
+                    visibility: hidden;
+                    opacity: 0;
+                }
+
                 &__side {
                     height: 100%;
                     width: 100%;
@@ -52,14 +57,14 @@
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
 
-            &-content {
+            &-name {
+                display: none;
+            }
+
+            &-buttons {
                 display: flex;
                 align-items: center;
                 gap: 16px;
-            }
-
-            &-name {
-                display: none;
             }
 
             &-duration {
@@ -77,9 +82,19 @@
             &-button {
                 width: 16px;
                 height: 16px;
+                flex-shrink: 0;
 
                 path {
                     fill: $clr-text_light;
+                }
+
+                &_play {
+                    rect {
+                        fill: $clr-text_light;
+                    }
+                    g:nth-child(2) {
+                        stroke: $clr-text_light;
+                    }
                 }
 
                 &_window {
@@ -98,6 +113,13 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(90deg);
+
+            &-overlay {
+                &__middle {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
         }
 
         &__controls {
@@ -137,36 +159,14 @@
                 max-height: 820px;
                 object-fit: cover;
             }
-
-            &-overlay {
-                position: absolute;
-                inset: 0;
-                display: grid;
-                grid-template-columns: 250px 1fr 250px;
-                justify-items: center;
-                align-items: center;
-
-                &__side {
-                    height: 100%;
-                    width: 100%;
-                    display: grid;
-                    place-items: center;
-                    
-                    svg {
-                        width: 40px;
-                    }
-
-                    path {
-                        fill: $clr-text_light;
-                    }
-                }
-            }
         }
 
         &__controls {
             &-content {
                 display: flex;
                 align-items: center;
+                flex-direction: column;
+                gap: 16px;
                 padding-block: 28px;
             }
 
@@ -174,14 +174,6 @@
                 display: flex;
                 align-items: center;
                 gap: 16px;
-                margin-right: 16px;
-
-                &::after {
-                    content: '';
-                    width: 1px;
-                    height: 74px;
-                    background-color: $clr-text_medium;
-                }
             }
 
             &-duration {
@@ -192,14 +184,27 @@
                 gap: 24px;
             }
 
+            &-buttons {
+                display: flex;
+                align-items: center;
+            }
+
             &-button {
                 width: 20px;
                 height: 20px;
+                flex-shrink: 0;
 
                 &_play {
                     margin-right: 16px;
                     width: 40px;
                     height: 40px;
+
+                    rect {
+                        fill: $clr-text_dark;
+                    }
+                    g:nth-child(2) {
+                        stroke: $clr-text_dark;
+                    }
                 }
 
                 &_sound {
@@ -226,10 +231,143 @@
     }
     // --- WIDE END ---
 
+    // --- OVERLAY ON WIDE START ---
+    @media (min-width: $tablet) {
+        &__screen {
+            &-overlay {
+                position: absolute;
+                inset: 0;
+                display: grid;
+                grid-template-columns: 150px 1fr 150px;
+                justify-items: center;
+                align-items: center;
+
+                &__middle {
+                    visibility: hidden;
+                    opacity: 0;
+                }
+    
+                &__side {
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    place-items: center;
+                
+    
+                    svg {
+                        width: 30px;
+                    }
+    
+                    path {
+                        fill: $clr-text_light;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: $tablet) and (hover: hover) {
+        &__screen {
+            &-overlay {
+                &__side {
+                    grid-template-columns: 0fr;
+                    transition: grid-template-columns 300ms;
+                    
+                    &:hover {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    &:hover svg {
+                        opacity: 1;
+                    }
+                    
+                    &-fill {
+                        overflow: hidden;
+                        backdrop-filter: blur(10px);
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+    
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            background-color: $clr-text_light;
+                            height: 100%;
+                            width: 2px;
+                            top: 0;
+                            right: 0;
+                        }
+                    }
+    
+                    svg {
+                        opacity: 0;
+                        flex-shrink: 0;
+                        transition: opacity 300ms;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: $tablet) and (hover: none) {
+        &__screen {
+            &-overlay {
+                &__side {
+                    svg {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+    // --- OVERLAY ON WIDE START ---
+
+    // --- WIDER START ---
+    @media (min-width: $desktop_m) {
+        &__screen {
+            &-overlay {
+                grid-template-columns: 250px 1fr 250px;
+
+                &__side {
+                    svg {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        &__controls {
+            &-content {
+                flex-direction: row;
+                gap: 0;
+            }
+
+            &-name {
+                margin-right: 16px;
+
+                &::after {
+                    content: "";
+                    width: 1px;
+                    height: 74px;
+                    background-color: $clr-text_medium;
+                }
+            }
+
+            &-buttons {
+                flex: 1;
+            }
+        }
+    }
+    // --- WIDER END ---
+
+    // --- GENERAL START, always applicable ---
     &__screen {
         &-overlay {
             &__side {
-                &:nth-of-type(2) {
+                &:last-child {
                     transform: rotate(180deg);
                 }
             }
@@ -251,7 +389,7 @@
 
                 @media (min-width: $tablet) {
                     background-color: rgba(0, 0, 0, 0.5);
-                    min-width: 250px;
+                    min-width: 220px;
                 }
 
                 &-thumb {
@@ -295,4 +433,5 @@
             }
         }
     }
+    // --- GENERAL END, always applicable ---
 }
