@@ -72,16 +72,6 @@
                 }
             }
 
-            .loading__logo {
-                position: relative;
-                max-width: 300px;
-            }
-
-            .loading__logo-icon {
-                width: 100%;
-                height: 100%;
-            }
-
             /* -------- loading animation logo -------- */
             /* 1. .loading__logo svg (path + rect) is drawn and put on the bottom of element's stack */
             /* 2. .loading__logo::before is a 100% x 100% (initially scaled to 0) rectangle put above svg */
@@ -93,6 +83,11 @@
                             4. .loading__logo-original fades in - 5s delay, 1s duration 
                             5. .loading__logo-original starts bouncing after 6 seconds 
                             THE WHOLE ANIMATION LASTS 6 SECONDS */
+
+            .loading__logo {
+                position: relative;
+                max-width: 300px;
+            }
 
             .loading__logo svg {
                 position: relative;
@@ -328,7 +323,7 @@
                         </svg>
                         <img
                             class="loading__logo-striped"
-                            src="./src/assets/icons-new/logo-striped.svg"
+                            src="./src/assets/icons-new/logo-striped-big.png"
                             alt="striped logo"
                         />
                         <img
