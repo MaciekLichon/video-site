@@ -3,6 +3,9 @@
 .vid {
     $custom-breakpoint: calc($tablet - 1px);
 
+    // ------ SMALL SCREENS - BELOW CUSTOM BREAKPOINT - START ------
+    // -------------- (max-width: $custom-breakpoint) --------------
+
     // --- GENERAL MOBILE START ---
     @media (max-width: $custom-breakpoint) {
         margin-top: 0;
@@ -38,7 +41,7 @@
                     width: 100%;
                     display: grid;
                     padding: 30px;
-                    
+
                     &-fill {
                         display: grid;
                         grid-template-rows: 50px 1fr 50px;
@@ -195,6 +198,12 @@
     }
     // --- HORIZONTAL MOBILE END ---
 
+    // ------- SMALL SCREENS - BELOW CUSTOM BREAKPOINT - END -------
+    // -------------- (max-width: $custom-breakpoint) --------------
+
+    // ------ BIGGER SCREENS - ABOVE CUSTOM BREAKPOINT - START ------
+    // -------------------- (min-width: $tablet) --------------------
+
     // --- WIDE START ---
     @media (min-width: $tablet) {
         &__screen {
@@ -294,7 +303,7 @@
                     visibility: hidden;
                     opacity: 0;
                 }
-    
+
                 &__side {
                     height: 100%;
                     width: 100%;
@@ -308,12 +317,11 @@
                     &-smalllink {
                         display: none;
                     }
-                
-    
+
                     svg {
                         width: 30px;
                     }
-    
+
                     path {
                         fill: $clr-text_light;
                     }
@@ -328,15 +336,15 @@
                 &__side {
                     grid-template-columns: 0fr;
                     transition: grid-template-columns 300ms;
-                    
+
                     &:hover {
                         grid-template-columns: 1fr;
                     }
-                    
+
                     &:hover svg {
                         opacity: 1;
                     }
-                    
+
                     &-fill {
                         overflow: hidden;
                         backdrop-filter: blur(10px);
@@ -346,10 +354,10 @@
                         align-items: center;
                         justify-content: center;
                         position: relative;
-    
+
                         &::after {
                             position: absolute;
-                            content: '';
+                            content: "";
                             background-color: $clr-text_light;
                             height: 100%;
                             width: 2px;
@@ -357,13 +365,13 @@
                             right: 0;
                         }
                     }
-    
+
                     svg {
                         opacity: 0;
                         flex-shrink: 0;
                         transition: opacity 300ms;
                     }
-                    
+
                     &.right {
                         .vid__screen-overlay__side-fill::after {
                             left: 0;
@@ -399,25 +407,25 @@
             height: 100%;
             z-index: 10000;
             background-color: black;
-    
+
             .vid__screen {
                 &-overlay {
                     display: none;
                 }
-    
+
                 &-content {
                     position: absolute;
                     inset: 0;
                     display: flex;
                     align-items: center;
                 }
-    
+
                 &-video {
                     max-height: 100%;
                     object-fit: contain;
                 }
             }
-    
+
             .vid__controls {
                 position: absolute;
                 width: 100%;
@@ -474,7 +482,12 @@
     }
     // --- WIDER END ---
 
-    // --- GENERAL START, always applicable ---
+    // ------ BIGGER SCREENS - ABOVE CUSTOM BREAKPOINT - END ------
+    // ------------------- (min-width: $tablet) -------------------
+
+    // --------------------- GENERAL - START ---------------------
+    // -------------------- always applicable --------------------
+
     &__screen {
         &-overlay {
             &__side {
@@ -547,5 +560,7 @@
             }
         }
     }
-    // --- GENERAL END, always applicable ---
+
+    // --------------------- GENERAL - END ---------------------
+    // ------------------- always applicable -------------------
 }
