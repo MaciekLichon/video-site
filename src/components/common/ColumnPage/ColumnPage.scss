@@ -14,16 +14,8 @@
     }
 
     &__title-text {
-        // font-size: 100px;
-        // text-transform: uppercase;
-        // font-family: $ff-condensed;
-        // font-weight: $fw-bold;
         position: sticky;
-        top: 100px;
-
-        @media (min-width: $tablet) {
-            // font-size: 120px;
-        }
+        top: 110px;
     }
 
     &__content {

@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router";
 import { AnimatePresence } from "framer-motion";
 
-// import Loading from "./components/pages/Loading/Loading";
 import About from "./components/pages/About/About";
 // import Awards from "./components/pages/Awards/Awards";
 import NewAwards from "./components/pages/AwardsNew/NewAwards";
