@@ -7,14 +7,21 @@
     text-align: center;
     
     &__circle {
-        width: 150px;
+        width: 80%;
+        max-width: 120px;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
         position: relative;
-        // overflow: hidden;
         transition: background-color 300ms;
+        display: grid;
+        place-items: center;
+
+        @media (min-width: $tablet) {
+            max-width: 160px;
+        }
         
         @media (min-width: $desktop) {
+            max-width: none;
             width: 200px;
         }
 
@@ -37,6 +44,11 @@
             }
         }
 
+        &-icon {
+            max-width: 70%;
+            max-height: 70%;
+        }
+
         &-video {
             position: absolute;
             border-radius: 50%;
@@ -54,30 +66,42 @@
     &__trophy {
         margin-top: 10px;
 
+        @media (max-width: 549px) {
+            font-size: 18px;
+        }
+
+        @media (min-width: 550px) and (max-width: calc($tablet - 1px)) {
+            font-size: $fs-400;
+        }
+
         @media (min-width: $tablet) {
             margin-top: 30px;
         }
     }
 
     &__event {
-        font-size: $fs-300;
+        font-size: $fs-100;
+
+        @media (min-width: $mobile_l) {
+            font-size: 18px;
+        }
+
+        @media (min-width: 550px) {
+            font-size: $fs-400;
+        }
 
         @media (min-width: $tablet) {
             font-size: $fs-h3;
         }
     }
 
-    &__title, &__event {
-        margin-top: 3px;
-
-        @media (min-width: $tablet) {
-            margin-top: 9px;
-        }
-    }
-
     &__title {
         font-weight: $fw-bold;
-        font-size: $fs-300;
+        font-size: 14px;
+
+        @media (min-width: 550px) {
+            font-size: 18px;
+        }
 
         @media (min-width: $tablet) {
             font-size: $fs-600;
@@ -85,39 +109,22 @@
     }
 
     &__comment {
-        font-size: $fs-200;
+        font-size: 14px;
 
-        @media (min-width: $tablet) {
-            font-size: auto;
+        @media (min-width: 550px) {
+            font-size: 18px;
         }
-    }
-}
-
-// steps layout
-.award {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    
-    &:nth-child(even) {
-        flex-direction: row-reverse;
 
         @media (min-width: $tablet) {
-            flex-direction: column;
-            gap: 0;
+            font-size: unset;
         }
     }
 
-    @media (min-width: $tablet) {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    &__circle, &__details {
-        flex: 1;
+    &__title, &__comment {
+        margin-top: 3px;
 
         @media (min-width: $tablet) {
-            flex: unset;
+            margin-top: 9px;
         }
     }
 }

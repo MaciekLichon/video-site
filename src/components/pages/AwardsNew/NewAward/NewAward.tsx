@@ -4,7 +4,7 @@ import React, {useRef} from 'react';
 import { INewAward } from '../../../../data/data';
 
 
-const NewAward: React.FC<INewAward> = ({award, event, commentOne, commentTwo, video}) => {
+const NewAward: React.FC<INewAward> = ({award, event, commentOne, commentTwo, video, icon}) => {
     const playerRef = useRef<HTMLVideoElement>(null);
 
     const playVideo = () => {
@@ -18,6 +18,7 @@ const NewAward: React.FC<INewAward> = ({award, event, commentOne, commentTwo, vi
     return (
         <div className="award" onMouseEnter={playVideo} onMouseLeave={pauseVideo}>
             <div className={`award__circle ${award.toLowerCase()}`}>
+                <img className="award__circle-icon" src={icon} alt="award icon" />
                 <video className="award__circle-video" ref={playerRef} muted loop playsInline>
                     <source src={video} type="video/mp4" />
                 </video>

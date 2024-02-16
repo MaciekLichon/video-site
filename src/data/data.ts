@@ -1,59 +1,63 @@
-export interface IAward {
-    award: string;
-    description: string;
-    title: string;
-    year: string;
-    video: string;
-}
+import awardOne from '../assets/icons-new/award-lion.svg';
+import awardTwo from '../assets/icons-new/award-lynx.svg';
+import awardThree from '../assets/icons-new/award-dnad.svg';
 
-export const awardsData: IAward[] = [
-    {
-        award: "Golden Whisker",
-        description: "Recognized for pioneering innovative nap strategies, creating a purrfectly relaxed workplace.",
-        title: "SnoozeMaster Excellence Award",
-        year: "2024",
-        video: videoPreview1,
-    },
-    {
-        award: "Silver Purr",
-        description: "Acknowledged for outstanding mediation, fostering a harmonious and playful feline community.",
-        title: "Paw-sitive Harmony Accolade",
-        year: "2023",
-        video: videoPreview2,
-    },
-    {
-        award: "Bronze Beam",
-        description:
-            "Celebrated for expertly optimizing sunbeam access, enhancing well-being through strategic basking.",
-        title: "Solar Serenity Accolade",
-        year: "2021",
-        video: videoPreview3,
-    },
-    {
-        award: "Platinum Treat",
-        description:
-            "Awarded for exceptional treat curation, delighting taste buds and promoting nutritional excellence.",
-        title: "Gourmet Whisker Delight",
-        year: "2023",
-        video: videoPreview4,
-    },
-    {
-        award: "Diamond Whisk",
-        description:
-            "Recognized for creating a whisker-centric culture, prioritizing the happiness of feline employees.",
-        title: "WhiskerWonder Distinction",
-        year: "2022",
-        video: videoPreview5,
-    },
-    {
-        award: "Pawsome Platinum",
-        description:
-            "Honored for overall excellence in feline-friendly corporate practices and pawsitive workplace initiatives.",
-        title: "Purrfection Pioneer Award",
-        year: "2022",
-        video: videoPreview6,
-    },
-];
+// export interface IAward {
+//     award: string;
+//     description: string;
+//     title: string;
+//     year: string;
+//     video: string;
+// }
+
+// export const awardsData: IAward[] = [
+//     {
+//         award: "Golden Whisker",
+//         description: "Recognized for pioneering innovative nap strategies, creating a purrfectly relaxed workplace.",
+//         title: "SnoozeMaster Excellence Award",
+//         year: "2024",
+//         video: videoPreview1,
+//     },
+//     {
+//         award: "Silver Purr",
+//         description: "Acknowledged for outstanding mediation, fostering a harmonious and playful feline community.",
+//         title: "Paw-sitive Harmony Accolade",
+//         year: "2023",
+//         video: videoPreview2,
+//     },
+//     {
+//         award: "Bronze Beam",
+//         description:
+//             "Celebrated for expertly optimizing sunbeam access, enhancing well-being through strategic basking.",
+//         title: "Solar Serenity Accolade",
+//         year: "2021",
+//         video: videoPreview3,
+//     },
+//     {
+//         award: "Platinum Treat",
+//         description:
+//             "Awarded for exceptional treat curation, delighting taste buds and promoting nutritional excellence.",
+//         title: "Gourmet Whisker Delight",
+//         year: "2023",
+//         video: videoPreview4,
+//     },
+//     {
+//         award: "Diamond Whisk",
+//         description:
+//             "Recognized for creating a whisker-centric culture, prioritizing the happiness of feline employees.",
+//         title: "WhiskerWonder Distinction",
+//         year: "2022",
+//         video: videoPreview5,
+//     },
+//     {
+//         award: "Pawsome Platinum",
+//         description:
+//             "Honored for overall excellence in feline-friendly corporate practices and pawsitive workplace initiatives.",
+//         title: "Purrfection Pioneer Award",
+//         year: "2022",
+//         video: videoPreview6,
+//     },
+// ];
 
 export interface INewAward {
     id: number,
@@ -62,6 +66,7 @@ export interface INewAward {
     commentOne: string;
     commentTwo: string;
     video: string;
+    icon: string;
 }
 
 export const newAwardsData: INewAward[] = [
@@ -72,6 +77,7 @@ export const newAwardsData: INewAward[] = [
         commentOne: 'Etisalat KSA',
         commentTwo: 'Commercial / Art direction',
         video: videoPreview1,
+        icon: awardOne
     },
     {
         id: 2,
@@ -80,6 +86,7 @@ export const newAwardsData: INewAward[] = [
         commentOne: 'Etisalat KSA',
         commentTwo: 'Commercial / Art direction',
         video: videoPreview2,
+        icon: awardTwo
     },
     {
         id: 3,
@@ -88,6 +95,7 @@ export const newAwardsData: INewAward[] = [
         commentOne: 'Etisalat KSA',
         commentTwo: 'Commercial / Art direction',
         video: videoPreview3,
+        icon: awardThree
     },
     {
         id: 4,
@@ -96,6 +104,7 @@ export const newAwardsData: INewAward[] = [
         commentOne: 'Etisalat KSA',
         commentTwo: 'Commercial / Art direction',
         video: videoPreview4,
+        icon: awardOne
     },
     {
         id: 5,
@@ -104,6 +113,7 @@ export const newAwardsData: INewAward[] = [
         commentOne: 'Etisalat KSA',
         commentTwo: 'Commercial / Art direction',
         video: videoPreview5,
+        icon: awardTwo
     },
     {
         id: 6,
@@ -112,6 +122,7 @@ export const newAwardsData: INewAward[] = [
         commentOne: 'Etisalat KSA',
         commentTwo: 'Commercial / Art direction',
         video: videoPreview6,
+        icon: awardThree
     }
 ]
 
