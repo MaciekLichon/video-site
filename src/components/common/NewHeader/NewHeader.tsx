@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
-import logoDark from "../../../assets/icons/logo-dark.svg";
+import logoShort from "../../../assets/icons-new/logo-short-dark.svg";
 import { navLinksData } from "../../../data/data";
 
 const NewHeader: React.FC = () => {
@@ -82,7 +82,7 @@ const NewHeader: React.FC = () => {
                     </ul>
                 </nav>
                 <Link to="/" className="header__logo" onClick={closeMenu}>
-                    <img src={logoDark} alt="logo" />
+                    <img src={logoShort} alt="logo" />
                 </Link>
             </div>
         </header>

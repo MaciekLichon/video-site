@@ -55,7 +55,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        gap: 40px;
 
         @media (min-width: $tablet) {
             display: grid;
@@ -63,12 +63,12 @@
             align-items: center;
             grid-template-columns: auto 1fr auto;
             grid-column: 2;
-            column-gap: 80px;
+            column-gap: 100px;
             row-gap: 60px;
         }
 
         @media (min-width: $desktop) {
-            column-gap: 150px;
+            column-gap: 250px;
             row-gap: 100px;
         }
 
@@ -78,24 +78,6 @@
 
             @media (min-width: $tablet) {
                 display: block;
-            }
-
-            &[href$="/videos"] {
-                display: block;
-                order: 3;
-
-                @media (min-width: $tablet) {
-                    order: unset;
-                }
-            }
-
-            &[href$="/contact"] {
-                display: block;
-                order: 1;
-
-                @media (min-width: $tablet) {
-                    order: unset;
-                }
             }
 
             &::after {
@@ -115,14 +97,63 @@
             &:hover::after {
                 transform: scaleX(1);
             }
+
+            &[href$="/videos"], &[href$="/commercials"] {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+
+                &::after {
+                    display: none;
+
+                    @media (min-width: $tablet) {
+                        display: block;
+                    }
+                }
+
+                p {
+                    color: $clr-text_light;
+                    text-transform: uppercase;
+                    font-weight: $fw-black;
+                    font-family: $ff-condensed;
+                    font-size: $fs-200;
+
+                    @media (min-width: $tablet) {
+                        display: none;
+                    }
+                }
+
+            }
+
+            &[href$="/videos"] {
+                order: 1;
+
+                @media (min-width: $tablet) {
+                    order: unset;
+                }
+            }
+
+            &[href$="/commercials"] {
+                order: 3;
+
+                @media (min-width: $tablet) {
+                    order: unset;
+                }
+            }
         }
 
         &-logo {
             order: 2;
+            width: 250px;
 
             @media (min-width: $tablet) {
                 order: unset;
                 grid-column: span 3;
+            }
+
+            @media (min-width: $desktop) {
+                width: 400px;
             }
         }
 

@@ -9,7 +9,8 @@ import iconInfo from "../../../assets/icons-new/nav-info.svg";
 import iconPeople from "../../../assets/icons-new/nav-people.svg";
 import iconTrophy from "../../../assets/icons-new/nav-awards.svg";
 import iconVideo from "../../../assets/icons-new/nav-videos.svg";
-import logo from "../../../assets/icons/logo.svg";
+// import logo from "../../../assets/icons/logo.svg";
+import logo from '../../../assets/icons-new/logo-long-white.svg';
 
 import bgVideo from "../../../assets/videos/video-bg.mp4";
 
@@ -30,16 +31,18 @@ const Home: React.FC = () => {
 
             <div className="home__panel container">
                 <div className="home__nav">
-                    <Link to="/videos" className="home__nav-link">
+                    <Link to="/commercials" className="home__nav-link">
                         <img src={iconVideo} alt="video icon" className="home__nav-icon" />
+                        <p>Commercials</p>
                     </Link>
                     <p className="home__nav-locations">
-                        <span>Pawspiring</span>
-                        <span>Whiskerized</span>
-                        <span>Meowtastic</span>
+                        <span>Cairo</span>
+                        <span>Dubai</span>
+                        <span>Riyadh</span>
                     </p>
-                    <Link to="/contact" className="home__nav-link">
+                    <Link to="/videos" className="home__nav-link">
                         <img src={iconContent} alt="content icon" className="home__nav-icon" />
+                        <p>Videos</p>
                     </Link>
                     <img src={logo} alt="logo" className="home__nav-logo" />
                     <Link to="/about" className="home__nav-link">

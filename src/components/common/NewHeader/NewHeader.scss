@@ -64,7 +64,9 @@
     }
 
     &__logo {
-        width: 130px;
+        margin-top: 3px;
+        width: 30px;
+        height: 30px;
         grid-column: 1;
 
         @media (min-width: $tablet) {

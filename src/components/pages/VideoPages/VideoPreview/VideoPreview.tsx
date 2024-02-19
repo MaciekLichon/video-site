@@ -3,8 +3,11 @@ import "./VideoPreview.scss";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { IVideo } from "../../../../data/data";
+import { IVideoSubpages } from "../../../../data/data";
 
-const VideoPreview: React.FC<IVideo> = ({ id, name, preview, video }) => {
+interface IProps extends IVideo, IVideoSubpages {}
+
+const VideoPreview: React.FC<IProps> = ({ id, name, preview, video, sublink }) => {
     // link prop removed for build
     const playerRef = useRef<HTMLVideoElement>(null);
 
@@ -17,7 +20,7 @@ const VideoPreview: React.FC<IVideo> = ({ id, name, preview, video }) => {
     };
 
     return (
-        <Link to={`/videos/${id}`} className="video" onMouseEnter={playVideo} onMouseLeave={pauseVideo}>
+        <Link to={`/${sublink}/${id}`} className="video" onMouseEnter={playVideo} onMouseLeave={pauseVideo}>
             <h4 className="video__title">{name}</h4>
             <img src={preview} alt="preview image" className="video__preview" />
             <video className="video__player" ref={playerRef} poster={preview} muted loop playsInline>

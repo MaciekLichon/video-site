@@ -1,0 +1,10 @@
+@import "../../../../styles/variables.scss";
+
+.videos {
+    display: grid;
+    gap: 3px;
+
+    @media (min-width: $tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+}

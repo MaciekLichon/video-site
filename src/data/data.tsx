@@ -130,21 +130,21 @@ export interface ILocation {
     location: string;
     phone: string;
     email: string;
-    address: string;
+    address: React.ReactNode;
 }
 
 export const locationsData: ILocation[] = [
     {
-        location: "Whisker Harbor",
-        phone: "123 456 789",
-        email: "email@com.pl",
-        address: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, modi.",
+        location: "Cairo",
+        phone: "+20 117 193 3005",
+        email: "name@bigfoot.com",
+        address: <>32 Ahmed Heshmat, <br/>Mohammed Mazhar, Zamalek <br/>Cairo, Egypt</>
     },
     {
-        location: "Pawsperity Square",
-        phone: "123 456 789",
-        email: "email@com.pl",
-        address: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, modi.",
+        location: "Dubai",
+        phone: "+971 55 678 8371",
+        email: "name@bigfoot.com",
+        address: <>113 Loft Offices, <br/>Dubai, United Arab Emirates</>
     },
 ];
 
@@ -261,6 +261,45 @@ export const videosData: IVideo[] = [
     },
 ];
 
+export const commercialsData: IVideo[] = [
+    {
+        id: "1",
+        link: "https://player.vimeo.com/video/482533185?background=1",
+        name: "WhiskerWhirl: A Feline Odyssey",
+        preview: works2,
+        video: videoPreview2,
+    },
+    {
+        id: "2",
+        link: "https://player.vimeo.com/video/482533185?background=1",
+        name: "Treatopia: Culinary Whisker Delights",
+        preview: works3,
+        video: videoPreview3,
+    },
+    {
+        id: "3",
+        link: "https://player.vimeo.com/video/482533185?background=1",
+        name: "Napflix and Chill: The Purrvana Chronicles",
+        preview: works1,
+        video: videoPreview1,
+    },
+    {
+        id: "4",
+        link: "https://player.vimeo.com/video/482533185?background=1",
+        name: "Sunbeam Symphony: A Strategic Catventure",
+        preview: works5,
+        video: videoPreview5,
+    },
+    {
+        id: "5",
+        link: "https://player.vimeo.com/video/482533185?background=1",
+        name: "Paws of Harmony: Feline Relations Unleashed 2",
+        preview: works4,
+        video: videoPreview4,
+    },
+];
+
+
 export interface INavLink {
     to: string;
     text: string;
@@ -269,19 +308,14 @@ export interface INavLink {
 
 export const navLinksData: INavLink[] = [
     {
+        to: "/commercials",
+        text: "Commercials",
+        availableInHeader: true,
+    },
+    {
         to: "/videos",
-        text: "Works",
-        availableInHeader: true,
-    },
-    {
-        to: "/people",
-        text: "Squad",
-        availableInHeader: true,
-    },
-    {
-        to: "/contact",
-        text: "Contact",
-        availableInHeader: true,
+        text: "Videos",
+        availableInHeader: false,
     },
     {
         to: "/awards",
@@ -293,6 +327,16 @@ export const navLinksData: INavLink[] = [
         text: "About",
         availableInHeader: false,
     },
+    {
+        to: "/people",
+        text: "People",
+        availableInHeader: true,
+    },
+    {
+        to: "/contact",
+        text: "Contact",
+        availableInHeader: true,
+    },
 ];
 
 export interface IParagraph {
@@ -302,18 +346,14 @@ export interface IParagraph {
 export const aboutParagraphs: IParagraph[] = [
     {
         id: 1,
-        text: "In the heart of Purrvana, the whimsical rhythm of success is conducted by the creative minds behind our feline-centric culture. As recipients of the Purrvana Excellence in Whiskerization, we take pride in fostering an environment where whiskers aren't just a facial feature but a celebrated aspect of individuality. The Diamond Whisk shines bright as a symbol of our commitment to crafting a workplace where each cat's unique charm is not only acknowledged but embraced.",
+        text: "Like our namesake, we have worked in the shadows and quietly earned a reputation for ourselves. Founded in 2011, Bigfoot Films is the region's most awarded production house with the unshared advantage of having offices in Cairo, Dubai and Riyadh. Our talented and experienced team cannot overstate their love for spinning a good tale whether it's tv commercials, music videos, films, mini-series, documentaries or branded content.",
     },
     {
         id: 2,
-        text: "At Purrvana, the Pawsperity Square, Clawston office is a testament to our dedication to overall excellence. The Purrfection Pioneer Award, our crowning achievement, recognizes the synergy between our cat colleagues and our commitment to innovation in feline-friendly corporate practices. With a score of 9.9 out of 10 in the Pawsome Platinum category, we stride forward, paws held high, into a future where cats and corporate success coexist in purrfect harmony.",
-    },
-    {
-        id: 3,
-        text: "Purrvana's journey extends across unique locations like Kitty Grove, Purrlandia, and Tabby Towers, Whiskington. These aren't just physical spaces but vibrant hubs where the Whiskerized ethos thrives. As the Platinum Treat holder, we continue to delight feline taste buds, ensuring that the golden thread of our cat-inspired brilliance weaves through every facet of our expanding empire.",
-    },
-    {
-        id: 4,
-        text: "Step into our Catropolis Central, Purrbania location, and you'll witness firsthand the seamless integration of feline finesse and corporate prowess. Gourmet Whiskerina's culinary mastery, celebrated with the Platinum Treat, exemplifies our commitment to providing a gastronomic haven for our discerning cat colleagues. The WhiskerWonder Distinction and SnoozeMaster Excellence Award are more than accolades; they symbolize our dedication to making Purrvana not just a workplace but a realm of endless possibilities for our cherished feline associates.",
-    },
+        text: "We have been privileged to work with many big name brands to create content that holds a creative edge all around the globe (UK, Lithuania, to South Africa, Spain, Germany, Amsterdam, and Slovenia). But don't take our word for it, have a look around our website and see for yourself!",
+    }
 ];
+
+export interface IVideoSubpages {
+    sublink: 'videos' | 'commercials'
+}

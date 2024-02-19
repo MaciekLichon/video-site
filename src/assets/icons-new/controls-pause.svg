@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41">
-  <g transform="translate(-1072 -991)">
-    <g transform="translate(1071 999.57)">
-      <rect fill="rgba(77, 77, 77, 1)" width="0.72" height="19.394" transform="translate(17 2.43)"/>
-      <rect fill="rgba(77, 77, 77, 1)" width="0.72" height="19.394" transform="translate(24.996 2.43)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129">
+  <g transform="translate(-95 -85)">
+    <g transform="translate(94.969 84.969)">
+      <g transform="translate(0.031 0.031)" fill="none" stroke="rgba(77, 77, 77, 1)" stroke-width="4">
+        <circle cx="64.5" cy="64.5" r="64.5" stroke="none"/>
+        <circle cx="64.5" cy="64.5" r="62.5" fill="none"/>
+      </g>
     </g>
-    <g stroke="rgba(77, 77, 77, 1)" stroke-width="0.5" fill="none" transform="translate(1072 991)">
-      <circle stroke="none" cx="20.5" cy="20.5" r="20.5"/>
-      <circle fill="none" cx="20.5" cy="20.5" r="20.25"/>
+    <g transform="translate(147 123)">
+      <rect id="Rectangle_9" data-name="Rectangle 9" width="1.989" height="53.605" transform="translate(0 0)" fill="rgba(77, 77, 77, 1)" stroke="rgba(77, 77, 77, 1)" stroke-linecap="round" stroke-width="1"/>
+      <rect id="Rectangle_10" data-name="Rectangle 10" width="1.989" height="53.605" transform="translate(22.1 0)" fill="rgba(77, 77, 77, 1)" stroke="rgba(77, 77, 77, 1)" stroke-linecap="round" stroke-width="1"/>
     </g>
   </g>
 </svg>

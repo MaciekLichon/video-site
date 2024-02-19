@@ -2,7 +2,7 @@ import "./Footer.scss";
 
 import React from "react";
 
-import logo from "../../../assets/icons/logo-dark.svg";
+import logo from "../../../assets/icons-new/logo-long-dark.svg";
 
 const Footer: React.FC = () => {
     return (
@@ -13,9 +13,9 @@ const Footer: React.FC = () => {
                     <div className="footer__text">
                         <p className="footer__year">© 2023</p>
                         <p className="footer__locations">
-                            <span>Pawspiring</span>
-                            <span>Whiskerized</span>
-                            <span>Meowtastic</span>
+                            <span>Cairo</span>
+                            <span>Dubai</span>
+                            <span>Riyadh</span>
                         </p>
                     </div>
                     <div className="footer__socials">

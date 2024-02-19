@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
         <TransitionedPage>
             <section className="contact container">
                 <h2 className="contact__message">Hello!</h2>
-                <a href="mailto:info@meowcorp.com" className="contact__email">info@meowcorp.com</a>
+                <a href="mailto:info@bigfootfilms.net" className="contact__email">info@bigfootfilms.net</a>
                 <div className="contact__locations">
                     {locationsData.map((item) => (
                         <SingleLocation key={item.location} {...item} />

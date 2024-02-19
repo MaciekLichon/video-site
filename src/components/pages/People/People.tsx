@@ -11,7 +11,7 @@ const People: React.FC = () => {
     return (
         <TransitionedPage>
             <section className="people container">
-                <ColumnPage title="squad">
+                <ColumnPage title="people">
                     <div className="people__content">
                         <div className="people__column">
                             {peopleOne.map((person) => (
