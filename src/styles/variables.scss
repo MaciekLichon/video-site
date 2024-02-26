@@ -34,6 +34,7 @@ $fs-h5: $fs-600;
 $fs-h6: $fs-400;
 
 $fs-text: $fs-600;
+$fs-text_s: $fs-200;
 $fs-nav-header: $fs-400;
 $fs-nav-hamburger: $fs-800;
 $fs-footer: $fs-200;
@@ -87,4 +88,4 @@ $desktop_l: 1400px;
 
 // below breakpoints are used together only 
 $width-to-show-footer: calc($tablet - 1px);
-$height-to-show-footer: 760px;
+$height-to-show-footer: 870px;

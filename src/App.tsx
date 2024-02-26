@@ -12,8 +12,8 @@ import Contact from "./components/pages/Contact/Contact";
 import Footer from "./components/common/Footer/Footer";
 import NewHeader from "./components/common/NewHeader/NewHeader";
 
-import VideosPage from "./components/pages/VideoPages/Videos";
-import Video from "./components/pages/VideoSingle/Video";
+import ContentPage from "./components/pages/VideoPages/Contents";
+import Content from "./components/pages/VideoSingle/Content";
 import CommercialsPage from "./components/pages/VideoPages/Commercials";
 import Commercial from "./components/pages/VideoSingle/Commercial";
 
@@ -30,8 +30,8 @@ const App: React.FC = () => {
                     <Route path="/people" element={<People />} />
                     <Route path="/commercials" element={<CommercialsPage />} />
                     <Route path="/commercials/:id" element={<Commercial />} />
-                    <Route path="/videos" element={<VideosPage />} />
-                    <Route path="/videos/:id" element={<Video />} />
+                    <Route path="/content" element={<ContentPage />} />
+                    <Route path="/content/:id" element={<Content />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

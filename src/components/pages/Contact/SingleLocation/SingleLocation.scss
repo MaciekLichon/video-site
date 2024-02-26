@@ -5,10 +5,10 @@
     flex-direction: column;
     gap: 22px;
     width: 100%;
-    font-size: $fs-contact-location;
 
     @media (min-width: 600px) {
         max-width: 400px;
+        font-size: $fs-contact-location;
     }
 
     &:not(:first-child) {

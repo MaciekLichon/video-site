@@ -71,7 +71,7 @@
                     path {
                         fill: $clr-text_light;
                     }
-    
+
                     path.nofill {
                         fill: transparent;
                     }
@@ -107,6 +107,13 @@
             padding-block: 14px;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
+            transition: opacity 300ms;
+
+            &_fade {
+                opacity: 0;
+                pointer-events: none;
+                transition-delay: 1s;
+            }
 
             &_hidden {
                 display: none;
@@ -139,11 +146,13 @@
                 height: 16px;
                 flex-shrink: 0;
 
-                circle, rect {
+                circle,
+                rect {
                     stroke: $clr-text_light;
                 }
 
-                path, rect {
+                path,
+                rect {
                     fill: $clr-text_light;
                 }
 
@@ -174,25 +183,35 @@
     // --- VERTICAL MOBILE START ---
     @media (max-width: $custom-breakpoint) and (orientation: portrait) {
         &__screen {
-            width: 100svh;
-            height: 100vw;
+            // width: 100svh;
+            // height: 100vw;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(90deg);
+            // transform: translate(-50%, -50%) rotate(90deg);
+            transform: translate(-50%, -50%);
 
+            
             &-overlay {
                 &__middle {
-                    visibility: visible;
-                    opacity: 1;
+                    // visibility: visible;
+                    // opacity: 1;
+                }
+
+                &__side-smalllink {
+                    visibility: hidden;
+                    opacity: 0;
                 }
             }
         }
-
+        
         &__controls {
-            top: 50%;
-            left: 20%;
-            transform: translate(-50%, -50%) rotate(90deg);
-            width: 60svh;
+            // top: 50%;
+            bottom: 30%;
+            left: 50%;
+            // transform: translate(-50%, -50%) rotate(90deg);
+            transform: translateX(-50%) scale(0.85);
+            // width: 60svh;
+            // width: auto;
         }
     }
     // --- VERTICAL MOBILE END ---
@@ -338,13 +357,13 @@
                     }
 
                     svg {
-                        width: 30px;
+                        width: 20px;
                     }
 
                     path {
                         fill: $clr-text_light;
                     }
-    
+
                     path.nofill {
                         fill: transparent;
                     }
@@ -359,17 +378,17 @@
                 &__side {
                     grid-template-columns: 0fr;
                     transition: grid-template-columns 300ms;
-                    
+
                     &:hover {
                         grid-template-columns: 1fr;
                     }
-                    
+
                     &:hover svg {
                         opacity: 1;
                     }
-                    
+
                     &-fill {
-                        background-color: rgba(255, 255, 255, 0.3);
+                        background-color: rgba(61, 61, 61, 0.8);
                         overflow: hidden;
                         width: 100%;
                         height: 100%;
@@ -457,7 +476,14 @@
                 transform: translateX(-50%);
                 background-color: rgba(255, 255, 255, 0.7);
                 backdrop-filter: blur(10px);
+
                 transition: opacity 300ms;
+
+                &_fade {
+                    opacity: 0;
+                    pointer-events: none;
+                    transition-delay: 1s;
+                }
 
                 &-content {
                     padding-block: 16px;
@@ -475,7 +501,7 @@
 
                 &__side {
                     svg {
-                        width: 40px;
+                        width: 30px;
                     }
                 }
             }

@@ -3,8 +3,12 @@
 body {
     font-family: $ff-regular;
     font-weight: $fw-regular;
-    font-size: $fs-text;
+    font-size: $fs-text_s;
     color: $clr-text_dark;
+
+    @media (min-width: $tablet) {
+        font-size: $fs-text;
+    }
 }
 
 // section title

@@ -9,7 +9,6 @@ import iconInfo from "../../../assets/icons-new/nav-info.svg";
 import iconPeople from "../../../assets/icons-new/nav-people.svg";
 import iconTrophy from "../../../assets/icons-new/nav-awards.svg";
 import iconVideo from "../../../assets/icons-new/nav-videos.svg";
-// import logo from "../../../assets/icons/logo.svg";
 import logo from '../../../assets/icons-new/logo-long-white.svg';
 
 import bgVideo from "../../../assets/videos/video-bg.mp4";
@@ -31,28 +30,31 @@ const Home: React.FC = () => {
 
             <div className="home__panel container">
                 <div className="home__nav">
-                    <Link to="/commercials" className="home__nav-link">
+                    <Link to="/commercials" className="home__nav-link home__nav-link_mobile">
                         <img src={iconVideo} alt="video icon" className="home__nav-icon" />
-                        <p>Commercials</p>
+                        <p className="home__nav-link__text">Commercials</p>
                     </Link>
                     <p className="home__nav-locations">
                         <span>Cairo</span>
                         <span>Dubai</span>
                         <span>Riyadh</span>
                     </p>
-                    <Link to="/videos" className="home__nav-link">
+                    <Link to="/content" className="home__nav-link home__nav-link_mobile">
                         <img src={iconContent} alt="content icon" className="home__nav-icon" />
-                        <p>Videos</p>
+                        <p className="home__nav-link__text">Content</p>
                     </Link>
                     <img src={logo} alt="logo" className="home__nav-logo" />
                     <Link to="/about" className="home__nav-link">
                         <img src={iconInfo} alt="info icon" className="home__nav-icon" />
+                        <p className="home__nav-link__text">About</p>
                     </Link>
                     <Link to="/people" className="home__nav-link">
                         <img src={iconPeople} alt="people icon" className="home__nav-icon" />
+                        <p className="home__nav-link__text">People</p>
                     </Link>
                     <Link to="/awards" className="home__nav-link">
                         <img src={iconTrophy} alt="trophy icon" className="home__nav-icon" />
+                        <p className="home__nav-link__text">Awards</p>
                     </Link>
                 </div>
                 <div className="home__socials">
@@ -64,9 +66,6 @@ const Home: React.FC = () => {
                     </a>
                     <a href="" className="home__socials-link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.609 23.062"> {" "} <path fill="white" d="M26.6,5.336q-.178,3.893-5.427,10.659-5.427,7.066-9.182,7.067-2.327,0-3.936-4.3Q6.976,14.813,5.9,10.867q-1.194-4.3-2.562-4.3A8.216,8.216,0,0,0,1.253,7.819L0,6.2Q1.971,4.469,3.884,2.734,6.512.459,7.826.34q3.107-.3,3.824,4.255.775,4.914,1.075,6.11.895,4.076,1.971,4.075.835,0,2.509-2.644A10.435,10.435,0,0,0,19,8.11q.238-2.282-1.792-2.284a4.968,4.968,0,0,0-1.969.437Q17.2-.175,22.731,0,26.832.126,26.6,5.336Z" />{" "} </svg>
-                    </a>
-                    <a href="" className="home__socials-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.49 27.49"> {" "} <path fill="white" stroke="white" transform="translate(0.5 0.5)" d="M13.245,0a13.245,13.245,0,1,0,7.487,24.185.552.552,0,1,0-.625-.909,12.151,12.151,0,1,1,5.279-10.031V16a2.759,2.759,0,0,1-5.519,0V13.245a6.627,6.627,0,1,0-1.025,3.536A3.863,3.863,0,0,0,26.49,16V13.245A13.26,13.26,0,0,0,13.245,0Zm0,18.764a5.519,5.519,0,1,1,5.519-5.519A5.525,5.525,0,0,1,13.245,18.764Z" />{" "} </svg>
                     </a>
                 </div>
             </div>

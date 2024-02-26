@@ -106,7 +106,9 @@ const VideoSingle: React.FC<IProps> = ({ videos, sublink }) => {
             case "ended":
                 updateVideoState("isPlaying");
                 break;
-            case "click": // works in fullscren mode only because the overlay is hidden, if is present just in case
+            case "click": 
+                // works in fullscren mode only because the overlay is hidden, if is present just in case
+                // overlay click (for minimized screen) is handled separately (inline)
                 if (videoStates.isFullScreen) {
                     changePlayState();
                 }
@@ -136,15 +138,21 @@ const VideoSingle: React.FC<IProps> = ({ videos, sublink }) => {
                                 className={`vid__screen-overlay ${
                                     isMobileOverlayVisible ? "vid__screen-overlay_mobile" : ""
                                 }`}
+                                onClick={() => changePlayState()}
                             >
                                 <div className="vid__screen-overlay__side left">
                                     <div className="vid__screen-overlay__side-fill">
-                                        <Link className="vid__screen-overlay__side-smalllink" to={`/${sublink}/`}>
+                                        <Link 
+                                            className="vid__screen-overlay__side-smalllink" 
+                                            to={`/${sublink}/`} 
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
                                             Close
                                         </Link>
                                         <Link
                                             className="vid__screen-overlay__side-videolink"
                                             to={`/${sublink}/${neighbourVideos.prev}`}
+                                            onClick={(e) => e.stopPropagation()}
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.469 39.859"> {" "} <path d="M937.393,368.238V405.96a1.072,1.072,0,0,0,1.068,1.069h4.27a1.073,1.073,0,0,0,1.068-1.069V390.266l17.39,16.1a2.85,2.85,0,0,0,4.673-2.188V370.017a2.85,2.85,0,0,0-4.671-2.189l-17.389,16V368.238a1.072,1.072,0,0,0-1.069-1.068h-4.27A1.071,1.071,0,0,0,937.393,368.238Z" transform="translate(-937.393 -367.17)" />{" "} </svg>
                                         </Link>
@@ -152,19 +160,23 @@ const VideoSingle: React.FC<IProps> = ({ videos, sublink }) => {
                                     </div>
                                 </div>
                                 <div className="vid__screen-overlay__middle">
-                                    <p style={{ color: "white", fontSize: "50px" }}>ROTATE</p>
+
                                 </div>
                                 <div className="vid__screen-overlay__side right">
                                     <div className="vid__screen-overlay__side-fill">
                                         <button
                                             className="vid__screen-overlay__side-smalllink"
-                                            onClick={() => setIsMobileOverlayVisible(!isMobileOverlayVisible)}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setIsMobileOverlayVisible(!isMobileOverlayVisible);
+                                            }}
                                         >
                                             Info
                                         </button>
                                         <Link
                                             className="vid__screen-overlay__side-videolink"
                                             to={`/${sublink}/${neighbourVideos.next}`}
+                                            onClick={(e) => e.stopPropagation()}
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.469 39.859"> {" "} <path d="M937.393,368.238V405.96a1.072,1.072,0,0,0,1.068,1.069h4.27a1.073,1.073,0,0,0,1.068-1.069V390.266l17.39,16.1a2.85,2.85,0,0,0,4.673-2.188V370.017a2.85,2.85,0,0,0-4.671-2.189l-17.389,16V368.238a1.072,1.072,0,0,0-1.069-1.068h-4.27A1.071,1.071,0,0,0,937.393,368.238Z" transform="translate(-937.393 -367.17)" />{" "} </svg>
                                         </Link>
@@ -174,7 +186,7 @@ const VideoSingle: React.FC<IProps> = ({ videos, sublink }) => {
                         </div>
                     </div>
                 </div>
-                <div className={`vid__controls ${isMobileOverlayVisible ? "vid__controls_hidden" : ""}`}>
+                <div className={`vid__controls ${isMobileOverlayVisible ? "vid__controls_hidden" : ""} ${videoStates.isPlaying ? "vid__controls_fade" : ""}`}>
                     <div className="container">
                         <div className="vid__controls-content">
                             <p className="vid__controls-name">{videoDetails?.name}</p>

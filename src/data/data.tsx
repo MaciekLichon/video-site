@@ -216,7 +216,7 @@ export interface IVideo {
     video: string;
 }
 
-export const videosData: IVideo[] = [
+export const contentData: IVideo[] = [
     {
         id: "1",
         link: "https://player.vimeo.com/video/482533185?background=1",
@@ -313,8 +313,8 @@ export const navLinksData: INavLink[] = [
         availableInHeader: true,
     },
     {
-        to: "/videos",
-        text: "Videos",
+        to: "/content",
+        text: "Content",
         availableInHeader: false,
     },
     {
@@ -355,5 +355,5 @@ export const aboutParagraphs: IParagraph[] = [
 ];
 
 export interface IVideoSubpages {
-    sublink: 'videos' | 'commercials'
+    sublink: 'content' | 'commercials'
 }
