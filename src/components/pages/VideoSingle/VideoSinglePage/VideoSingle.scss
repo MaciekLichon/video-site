@@ -55,17 +55,20 @@
                     &-smalllink {
                         align-self: start;
                         justify-self: start;
-                        color: $clr-text_light;
-                        font-size: 13px;
-                        padding: 6px;
-                        border-radius: 5px;
-                        background-color: rgba(255, 255, 255, 0.3);
-                        transition: color 200ms, background-color 200ms;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                            opacity: 1;
+                            opacity: 0.7;
+                        }
                     }
 
-                    svg {
-                        width: 20px;
-                        opacity: 0.3;
+                    &-videolink {
+                        svg {
+                            width: 20px;
+                            opacity: 0.3;
+                        }
                     }
 
                     path {
@@ -81,9 +84,12 @@
                     background-color: rgba(255, 255, 255, 0.8);
                     grid-template-columns: auto auto 120px;
 
-                    .vid__screen-overlay__side-smalllink {
-                        color: $clr-text_dark;
-                        background-color: transparent;
+                    .vid__screen-overlay__side-smalllink path:not(.nofill), circle {
+                        fill: $clr-text_dark;
+                    }
+
+                    .vid__screen-overlay__side-smalllink path {
+                        stroke: $clr-text_dark;
                     }
 
                     .vid__screen-overlay__side-videolink {
