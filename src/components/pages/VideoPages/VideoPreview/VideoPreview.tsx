@@ -7,8 +7,8 @@ import { IVideoSubpages } from "../../../../data/data";
 
 interface IProps extends IVideo, IVideoSubpages {}
 
-const VideoPreview: React.FC<IProps> = ({ id, name, preview, snippet, sublink }) => {
-    // link prop removed for build
+const VideoPreview: React.FC<IProps> = ({ id, name, snippet, sublink }) => {
+    // preview prop removed for build
     const playerRef = useRef<HTMLVideoElement>(null);
 
     const playVideo = () => {
