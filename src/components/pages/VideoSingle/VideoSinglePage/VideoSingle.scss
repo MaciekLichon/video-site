@@ -29,7 +29,12 @@
                 grid-template-columns: 120px 1fr 120px;
                 justify-items: center;
                 align-items: center;
-                transition: background-color 200ms;
+                transition: background-color 200ms, opacity 300ms;
+
+                &_hidden {
+                    opacity: 0;
+                    transition: opacity 300ms 1s;
+                }
 
                 &__middle {
                     visibility: hidden;
@@ -254,7 +259,12 @@
             &-video {
                 width: 100%;
                 max-height: 820px;
-                object-fit: cover;
+                // object-fit: cover;
+                background-color: rgba(0, 0, 0, 1);
+
+                // we can either not set height boundary
+                // set max height and not fill it with video and use black bg
+                // or set max height and fill it with video croping a part of it
             }
         }
 

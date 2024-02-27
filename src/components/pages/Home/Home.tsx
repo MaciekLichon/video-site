@@ -11,7 +11,8 @@ import iconTrophy from "../../../assets/icons-new/nav-awards.svg";
 import iconVideo from "../../../assets/icons-new/nav-videos.svg";
 import logo from '../../../assets/icons-new/logo-long-white.svg';
 
-import bgVideo from "../../../assets/videos/video-bg.mp4";
+// import bgVideo from "../../../assets/videos/video-bg.mp4";
+import bgVideo from "../../../assets/videos/bmw_museum_of_sound_snippet.mp4";
 
 const Home: React.FC = () => {
     return (
